@@ -1,0 +1,351 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import indiankyImg from '../../specs/photos/indianky.jpg';
+import kosickyImg from '../../specs/photos/kosicky.jpg';
+import mixImg from '../../specs/photos/mix.jpg';
+import torta1Img from '../../specs/photos/torta-1.jpg';
+import torta2Img from '../../specs/photos/torta-2.jpg';
+import torta3Img from '../../specs/photos/torta-3.jpg';
+import tortaImg from '../../specs/photos/torta.jpg';
+import tortyImg from '../../specs/photos/torty.jpg';
+import vajceImg from '../../specs/photos/vajce-presvietene.png';
+
+const torty = [
+  {
+    src: torta2Img,
+    alt: 'Krémová torta s figami, malinami, passion fruit a ružou',
+    caption: 'Svadobné a slávnostné',
+  },
+  {
+    src: torta3Img,
+    alt: 'Čokoládová torta s makarónkami, lesnými plodmi a motýlikmi',
+    caption: 'Detské oslavy a krstiny',
+  },
+  {
+    src: torta1Img,
+    alt: 'Textúrovaná svetlá torta zdobená karamelovými plátkami a striebornými srdcami',
+    caption: 'Textúrované krémové',
+  },
+  {
+    src: tortaImg,
+    alt: 'Čokoládová torta s orechmi, figami a šľahačkovým venčekom',
+    caption: 'Klasické s orechmi a figami',
+  },
+];
+
+const drobnosti = [
+  {
+    src: kosickyImg,
+    alt: 'Mini tarteletky s lesnými plodmi, čokoládou a krémom na drevenej etažéri',
+    caption: 'Mini dezerty',
+    note: 'Tarteletky, mini cheesecaky, čokoládové košíčky.',
+  },
+  {
+    src: indiankyImg,
+    alt: 'Ružové glazované indianky so zlatým plátkom na keramickom tanieri',
+    caption: 'Indianky',
+    note: 'Slovenský klasik v sviežej úprave.',
+  },
+  {
+    src: mixImg,
+    alt: 'Drevený podnos s drobnými dezertami: éclair, makarónky, ovocné taquito',
+    caption: 'Bufetový mix',
+    note: 'Pre väčšie skupiny, viacero druhov na jeden stôl.',
+  },
+];
+---
+
+<Base
+  title="Kuchyňa pri farme — Farma Kerestúr"
+  description="Profesionálna kuchyňa vedľa pštrosej farmy. Oslavy, catering a torty pre 14 ľudí — z pštrosích vajec, mäsa z výbehu a zeleniny zo záhradky."
+>
+  <SiteHeader />
+
+  <main>
+    <!-- HERO -->
+    <section class="grid lg:grid-cols-[3fr_2fr] bg-surface text-ink">
+      <figure
+        class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[560px] overflow-hidden"
+      >
+        <Image
+          src={tortyImg}
+          alt="Tri rôzne torty na pracovnom pulte profesionálnej kuchyne"
+          widths={[600, 900, 1400, 1800]}
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </figure>
+
+      <article
+        class="flex flex-col justify-center gap-8 px-8 py-14 lg:px-14 lg:py-20 max-w-2xl"
+      >
+        <p
+          class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight"
+        >
+          Kuchyňa pri farme
+        </p>
+
+        <h1
+          class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
+        >
+          Stôl pre
+          <span
+            class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]"
+          >
+            14 ľudí,
+          </span> navarený z&nbsp;toho, čo ste videli na ceste sem.
+        </h1>
+
+        <p class="font-body text-lg leading-relaxed text-ink-muted">
+          Pri dome stojí profesionálna kuchyňa, ktorú si rodina sama zrekonštruovala.
+          Farmárka a farmár spolu navaria celé menu, napečú tortu, pripravia catering —
+          pre oslavu, krstiny, team-building, posedenie s partiou alebo akúkoľvek
+          inú akciu až pre štrnásť ľudí.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-6 pt-2">
+          <a
+            href="tel:+421905323828"
+            class="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body font-semibold text-surface transition hover:opacity-90"
+          >
+            Dohodnúť termín
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="#proces"
+            class="font-body text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+          >
+            Ako sa dohodneme
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- Z FARMY DO KUCHYNE -->
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+      >
+        <article class="flex flex-col gap-6 lg:order-1">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+          >
+            Z farmy do kuchyne
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
+          >
+            Vajcia z liahne, byliny zo
+            <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">
+              záhradky.
+            </span>
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink">
+            Pštrosie vajcia z vlastnej liahne, mäso z vlastného výbehu, zelenina a
+            byliny z vlastnej záhradky. Žiadne antibiotiká pri zvieratách, žiadne
+            postreky pri rastlinách. Surovinová cesta od dvora po sporák meria
+            niekoľko metrov.
+          </p>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Pri väčších oslavách doplníme víno z vlastnej pivnice — ako súčasť
+            stola, nie ako samostatný predaj. Tu sa nepredáva surovina, tu sa
+            servíruje hotová.
+          </p>
+        </article>
+
+        <figure
+          class="lg:order-2 relative aspect-[4/3] rounded-lg overflow-hidden"
+        >
+          <Image
+            src={vajceImg}
+            alt="Pštrosie vajce presvietené zdroja svetla — žiarivá oranžovo-červená farba presvitá cez škrupinu"
+            widths={[500, 750, 1100]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <!-- TORTY -->
+    <section class="py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Sladké
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink mb-4 leading-[1.05]"
+          >
+            Torty pre každú príležitosť.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Každá torta je vyrobená na zákazku podľa dátumu, počtu ľudí a chuti.
+            Bez šablón, bez kupovaných korpusov.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {
+            torty.map((t) => (
+              <figure class="flex flex-col gap-3">
+                <div class="relative aspect-[4/5] overflow-hidden rounded-lg">
+                  <Image
+                    src={t.src}
+                    alt={t.alt}
+                    widths={[500, 750, 1100]}
+                    sizes="(min-width: 640px) 45vw, 90vw"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption class="font-display text-xl text-ink">
+                  {t.caption}
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- DROBNOSTI -->
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Zákusky a drobnosti
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink mb-4 leading-[1.05]"
+          >
+            Indianky, mini dezerty, bufet.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Pre svadobné stoly, firemné akcie alebo malé rodinné posedenia. Mix
+            slovenských klasikov a moderných dezertov.
+          </p>
+        </header>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          {
+            drobnosti.map((d) => (
+              <figure class="flex flex-col gap-3 bg-surface border border-border rounded-lg overflow-hidden">
+                <div class="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={d.src}
+                    alt={d.alt}
+                    widths={[400, 600, 900]}
+                    sizes="(min-width: 768px) 30vw, 90vw"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption class="px-6 pb-6 flex flex-col gap-1">
+                  <span class="font-display text-xl text-ink">{d.caption}</span>
+                  <span class="font-body text-base text-ink-muted leading-relaxed">
+                    {d.note}
+                  </span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- AKO SA DOHODNEME -->
+    <section id="proces" class="py-20 lg:py-24">
+      <div class="mx-auto max-w-4xl px-6">
+        <header class="mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Proces
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink mb-4 leading-[1.05]"
+          >
+            Stačí
+            <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">
+              zavolať.
+            </span>
+          </h2>
+        </header>
+
+        <ol class="grid gap-8 md:grid-cols-3">
+          <li class="flex flex-col gap-3">
+            <span class="font-display text-5xl text-ink-muted leading-none">01</span>
+            <h3 class="font-display text-xl text-ink">Zavolajte</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Prejdeme dátum, počet ľudí, či hľadáte celé menu, len tortu alebo
+              bufetové dezerty. Diétne špecifiká vieme.
+            </p>
+          </li>
+          <li class="flex flex-col gap-3">
+            <span class="font-display text-5xl text-ink-muted leading-none">02</span>
+            <h3 class="font-display text-xl text-ink">Naplánujeme</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Spolu navrhneme menu podľa príležitosti a sezóny. Surovina, ktorá je
+              v ten týždeň najlepšia, sa dostane na stôl.
+            </p>
+          </li>
+          <li class="flex flex-col gap-3">
+            <span class="font-display text-5xl text-ink-muted leading-none">03</span>
+            <h3 class="font-display text-xl text-ink">Vy príďte</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              My pripravíme. Vy si užijete oslavu, posedenie alebo team-building
+              v kuchyni vedľa pštrosov.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-ink text-surface py-20 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6 text-center flex flex-col gap-6 items-center">
+        <p
+          class="font-body text-xs uppercase tracking-[0.22em] text-surface/60"
+        >
+          Termín radi prekonzultujeme
+        </p>
+        <h2
+          class="font-display text-balance text-4xl lg:text-5xl text-surface leading-[1.1]"
+        >
+          Stôl pre 14 čaká.
+        </h2>
+        <p class="font-body text-lg leading-relaxed text-surface/80 max-w-xl">
+          Najlepšie sa dohodneme cez telefón — pri stole stojí kuchyňa, pri kuchyni
+          farmár, a pri telefóne vy.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center pt-2">
+          <a
+            href="tel:+421905323828"
+            class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-body font-semibold text-ink transition hover:opacity-90"
+          >
+            +421 905 323 828
+          </a>
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 rounded-full border border-surface/30 px-7 py-3.5 font-body font-semibold text-surface transition hover:bg-surface/10"
+          >
+            Späť na úvod
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>
