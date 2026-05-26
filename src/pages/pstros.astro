@@ -1,21 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import { type CollectionEntry, getCollection, render } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 
-export async function getStaticPaths() {
-  const zvierata = await getCollection('zvierata');
-  return zvierata.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+const entry = await getEntry('zvierata', 'pstros');
+if (!entry) {
+  throw new Error('Missing required content entry: zvierata/pstros');
 }
-
-type Props = { entry: CollectionEntry<'zvierata'> };
-
-const { entry } = Astro.props as Props;
 const { Content } = await render(entry);
 ---
 
@@ -45,12 +38,7 @@ const { Content } = await render(entry);
           <p
             class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight"
           >
-            <a
-              href="/zvierata"
-              class="hover:text-ink underline decoration-1 underline-offset-4"
-            >
-              Zvieratá
-            </a>
+            Pštrosia farma Kerestúr
           </p>
           <h1
             class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
@@ -73,10 +61,10 @@ const { Content } = await render(entry);
         class="mx-auto max-w-3xl px-6 pb-20 flex items-center justify-between gap-6 font-body text-base"
       >
         <a
-          href="/zvierata"
+          href="/"
           class="text-ink underline decoration-1 underline-offset-4 hover:text-brand"
         >
-          ← Späť na všetky zvieratá
+          ← Späť na úvod
         </a>
         <a
           href="tel:+421905323828"
