@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+
+export async function getStaticPaths() {
+  const zvierata = await getCollection('zvierata');
+  return zvierata.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+type Props = { entry: CollectionEntry<'zvierata'> };
+
+const { entry } = Astro.props as Props;
+const { Content } = await render(entry);
+---
+
+<Base title={`${entry.data.name} — Farma Kerestúr`} description={entry.data.lead}>
+  <SiteHeader />
+
+  <main>
+    <article>
+      <header class="grid lg:grid-cols-[3fr_2fr] bg-surface text-ink">
+        <figure
+          class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden"
+        >
+          <Image
+            src={entry.data.heroImage}
+            alt={entry.data.name}
+            widths={[600, 900, 1400, 1800]}
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            loading="eager"
+            fetchpriority="high"
+            class="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+          />
+        </figure>
+
+        <div
+          class="flex flex-col justify-center gap-6 px-8 py-14 lg:px-14 lg:py-20 max-w-2xl"
+        >
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight"
+          >
+            <a
+              href="/zvierata"
+              class="hover:text-ink underline decoration-1 underline-offset-4"
+            >
+              Zvieratá
+            </a>
+          </p>
+          <h1
+            class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
+          >
+            {entry.data.name}
+          </h1>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            {entry.data.lead}
+          </p>
+        </div>
+      </header>
+
+      <div class="bg-surface-muted py-16 lg:py-24">
+        <div class="mx-auto max-w-3xl px-6 prose">
+          <Content />
+        </div>
+      </div>
+
+      <nav
+        class="mx-auto max-w-3xl px-6 pb-20 flex items-center justify-between gap-6 font-body text-base"
+      >
+        <a
+          href="/zvierata"
+          class="text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+        >
+          ← Späť na všetky zvieratá
+        </a>
+        <a
+          href="tel:+421905323828"
+          class="text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+        >
+          +421 905 323 828
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <SiteFooter />
+</Base>

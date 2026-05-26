@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+
+const zvierata = (await getCollection('zvierata')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base
+  title="Zvieratá — Farma Kerestúr"
+  description="Pštrosy, kurčatá, morky, zajace a včely v Križovanoch nad Dudváhom. Päť druhov, jedna rodinná farma."
+>
+  <SiteHeader />
+
+  <main>
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Naše zvieratá
+          </p>
+          <h1
+            class="font-display text-balance text-4xl lg:text-6xl text-ink mb-4 leading-[1.02]"
+          >
+            Päť druhov, jedna farma.
+          </h1>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Pštros je hlavná hviezda, ale nie sám. Štyri ďalšie druhy zvierat
+            dotvárajú farmu — každý so svojím rytmom, svojou hodnotou a svojím
+            miestom v dennom poriadku.
+          </p>
+        </header>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {
+            zvierata.map((z) => (
+              <a
+                href={`/zvierata/${z.id}`}
+                class="group block bg-surface border border-border rounded-lg overflow-hidden transition hover:border-ink"
+              >
+                <figure class="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={z.data.heroImage}
+                    alt={z.data.name}
+                    widths={[500, 750, 1100]}
+                    sizes="(min-width: 768px) 45vw, 90vw"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                </figure>
+                <div class="p-6 flex flex-col gap-3">
+                  <h2 class="font-display text-2xl lg:text-3xl text-ink">
+                    {z.data.name}
+                  </h2>
+                  <p class="font-body text-base leading-relaxed text-ink-muted">
+                    {z.data.lead}
+                  </p>
+                  <p class="mt-2 font-body text-base text-ink underline decoration-1 underline-offset-4 group-hover:text-brand">
+                    Čítať viac →
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>
