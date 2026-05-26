@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
+import farmari4Img from '../../specs/photos/farmari-4.jpg';
 import indiankyImg from '../../specs/photos/indianky.jpg';
 import kosickyImg from '../../specs/photos/kosicky.jpg';
 import mixImg from '../../specs/photos/mix.jpg';
@@ -259,6 +260,46 @@ const drobnosti = [
             ))
           }
         </div>
+      </div>
+    </section>
+
+    <!-- VARÍME MY DVAJA -->
+    <section class="py-20 lg:py-24">
+      <div
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+      >
+        <figure
+          class="relative aspect-[4/3] rounded-lg overflow-hidden lg:order-2"
+        >
+          <Image
+            src={farmari4Img}
+            alt="Silvia a Jozef v profesionálnej kuchyni s pripravenou pečienkou"
+            widths={[500, 750, 1100]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+
+        <article class="flex flex-col gap-6 lg:order-1">
+          <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted">
+            Kto varí
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
+          >
+            Varíme my dvaja.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink">
+            V profesionálnej kuchyni pri farme stojíme Silvia a Jozef. Žiadny
+            dodávateľ, žiadne polotovary — celé menu, slané aj sladké, pripravíme
+            sami.
+          </p>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Profesionálne vybavenie, domáce suroviny a chuť navariť tak, ako keby
+            sme varili pre vlastnú rodinu.
+          </p>
+        </article>
       </div>
     </section>
 
