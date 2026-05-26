@@ -4,12 +4,33 @@ import { getEntry, render } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
+import pstrosyImg from '../../specs/photos/3.jpg';
+import mladeImg from '../../specs/photos/mlade-1.jpg';
+import vajceImg from '../../specs/photos/vajce-presvietene.png';
 
 const entry = await getEntry('zvierata', 'pstros');
 if (!entry) {
   throw new Error('Missing required content entry: zvierata/pstros');
 }
 const { Content } = await render(entry);
+
+const gallery = [
+  {
+    src: pstrosyImg,
+    alt: 'Dvojica dospelých pštrosov pri západe slnka',
+    caption: 'Dospelé pštrosy. Tridsať kusov, každý so svojím menom.',
+  },
+  {
+    src: mladeImg,
+    alt: 'Pštrosie mláďatá v sláme s charakteristickými pásikmi',
+    caption: 'Mláďatá. Liahnu sa od marca do júna, prvé dni v teplej liahni.',
+  },
+  {
+    src: vajceImg,
+    alt: 'Pštrosie vajce presvietené zboku, žiarivo červené a oranžové',
+    caption: 'Pštrosie vajce. 1,5 kg, stačí na omeletu pre celú rodinu.',
+  },
+];
 ---
 
 <Base title={`${entry.data.name} — Farma Kerestúr`} description={entry.data.lead}>
@@ -56,6 +77,44 @@ const { Content } = await render(entry);
           <Content />
         </div>
       </div>
+
+      <section class="py-16 lg:py-24 bg-surface">
+        <div class="mx-auto max-w-6xl px-6">
+          <header class="mb-10 max-w-2xl">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+            >
+              V troch obrázkoch
+            </p>
+            <h2
+              class="font-display text-balance text-3xl lg:text-4xl text-ink leading-[1.1]"
+            >
+              Dospelý pštros, mláďatá, vajcia.
+            </h2>
+          </header>
+          <div class="grid gap-6 sm:grid-cols-3">
+            {
+              gallery.map((g) => (
+                <figure class="flex flex-col gap-3">
+                  <div class="relative aspect-[4/5] overflow-hidden rounded-lg">
+                    <Image
+                      src={g.src}
+                      alt={g.alt}
+                      widths={[400, 600, 900]}
+                      sizes="(min-width: 640px) 30vw, 90vw"
+                      loading="lazy"
+                      class="absolute inset-0 h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+                    {g.caption}
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
 
       <nav
         class="mx-auto max-w-3xl px-6 pb-20 flex items-center justify-between gap-6 font-body text-base"
