@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import Base from '@/layouts/Base.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import farmariImg from '../../specs/photos/farmari.jpg';
+
+const lead =
+  'Rodinná farma v Križovanoch nad Dudváhom. Od roku 2015 chováme pštrosy — nie ako agrobiznis, ale ako spôsob života.';
+---
+
+<Base title="O nás — Farma Kerestúr" description={lead}>
+  <SiteHeader />
+
+  <main>
+    <!-- HERO -->
+    <section class="grid lg:grid-cols-[3fr_2fr] bg-surface text-ink">
+      <figure
+        class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[560px] overflow-hidden"
+      >
+        <Image
+          src={farmariImg}
+          alt="Silvia a Jozef, farmári z Farmy Kerestúr, pred kamenným domom"
+          widths={[600, 900, 1400, 1800]}
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </figure>
+
+      <article
+        class="flex flex-col justify-center gap-8 px-8 py-14 lg:px-14 lg:py-20 max-w-2xl"
+      >
+        <p
+          class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight"
+        >
+          O nás
+        </p>
+
+        <h1
+          class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
+        >
+          Silvia, Jozef a
+          <span
+            class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]"
+          >
+            tridsať pštrosov.
+          </span>
+        </h1>
+
+        <p class="font-body text-lg leading-relaxed text-ink-muted">
+          {lead}
+        </p>
+      </article>
+    </section>
+
+    <!-- PRÍBEH -->
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6 prose">
+        <h2>Začali sme s tromi.</h2>
+        <p>
+          V roku 2015 prišli na našu farmu pri Križovanoch nad Dudváhom prvé tri
+          pštrosy. Začínali sme v malom a učili sa priamo od zvierat — pštros nie je
+          krava ani sliepka, má svoju hlavu a svoje tempo.
+        </p>
+        <p>
+          Dnes ich máme tridsať a každý má svoje meno. Žijú na veľkom výbehu,
+          dospievajú vlastným tempom a dožívajú sa aj šesťdesiatky. Žiadne haly,
+          žiadne hormóny, žiadne ponáhľanie sa za číslami v tabuľke.
+        </p>
+        <p>
+          Nie sme veľkochov ani značka s logom na regáli. Sme rodina, ktorá pozná
+          každé svoje zviera po mene a ktorá verí, že <strong>šťastný pštros je
+          dobrý pštros</strong>.
+        </p>
+        <p>
+          Prečo práve pštrosy a nie čosi bežnejšie? Najlepšie vám to povieme osobne —
+          pri výbehu, keď sa k vám zvedavo nakloní meter a pol vysoký vták.
+        </p>
+      </div>
+    </section>
+
+    <!-- SILVIA & JOZEF -->
+    <section class="py-20 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6 flex flex-col gap-6">
+        <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted">
+          Kto sme
+        </p>
+        <h2
+          class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
+        >
+          Dvaja ľudia, jedna farma.
+        </h2>
+        <p class="font-body text-lg leading-relaxed text-ink">
+          Farmu vedieme spolu — <strong>Silvia</strong> a <strong>Jozef</strong>.
+          Pri pštrosoch sme obaja: kŕmenie, liaheň, výbeh, každodenný rytmus.
+        </p>
+        <p class="font-body text-lg leading-relaxed text-ink-muted">
+          V kuchyni pri farme vedie Silvia — torty, oslavy a catering pre malé
+          skupiny pripravuje z toho, čo na farme dorastie. Vajcia, zelenina,
+          byliny: cesta od dvora po stôl meria pár metrov.
+        </p>
+        <div class="flex flex-wrap items-center gap-6 pt-2">
+          <a
+            href="/kuchyna"
+            class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+          >
+            Kuchyňa pri farme
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="/pstros"
+            class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+          >
+            Náš pštros
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-ink text-surface py-20 lg:py-24">
+      <div
+        class="mx-auto max-w-3xl px-6 text-center flex flex-col gap-6 items-center"
+      >
+        <p class="font-body text-xs uppercase tracking-[0.22em] text-surface/60">
+          Najradšej naživo
+        </p>
+        <h2
+          class="font-display text-balance text-4xl lg:text-5xl text-surface leading-[1.1]"
+        >
+          Príďte sa zoznámiť.
+        </h2>
+        <p class="font-body text-lg leading-relaxed text-surface/80 max-w-xl">
+          Farmu spoznáte najlepšie, keď na ňu prídete. Termín návštevy si dohodneme
+          telefonicky — čaká vás farmár, nie zatvorené dvere.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center pt-2">
+          <a
+            href="tel:+421905323828"
+            class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-body font-semibold text-ink transition hover:opacity-90"
+          >
+            +421 905 323 828
+          </a>
+          <a
+            href="/navsteva"
+            class="inline-flex items-center gap-2 rounded-full border border-surface/30 px-7 py-3.5 font-body font-semibold text-surface transition hover:bg-surface/10"
+          >
+            Návšteva farmy
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</Base>
