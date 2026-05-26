@@ -7,6 +7,7 @@ import heroImage from '../../specs/photos/1.jpg';
 import pstrosImg from '../../specs/photos/3.jpg';
 import mladaImg from '../../specs/photos/5.jpg';
 import vajceImg from '../../specs/photos/10.jpg';
+import kuchynaImg from '../../specs/photos/9.jpg';
 import farmariImg from '../../specs/photos/8.jpg';
 import logoImage from '../../specs/existing-logo.png';
 
@@ -57,7 +58,7 @@ const animals = [
           sizes="(min-width: 1024px) 60vw, 100vw"
           loading="eager"
           fetchpriority="high"
-          class="absolute inset-0 h-full w-full object-cover"
+          class="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
         />
       </figure>
 
@@ -114,12 +115,15 @@ const animals = [
           >
             Návšteva farmy
           </p>
-          <h2 class="font-display text-4xl lg:text-5xl text-ink mb-4">
-            Príďte sa pozrieť na vlastné oči.
+          <h2 class="font-display text-4xl lg:text-5xl text-ink mb-4 leading-[1.05]">
+            Príďte sa pozrieť na
+            <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">
+              vlastné oči.
+            </span>
           </h2>
           <p class="font-body text-lg leading-relaxed text-ink-muted">
             Pštrosy, mláďatá, vajcia — všetko zblízka, žiadne sklo, žiadne kovové
-            zábrany ako v ZOO. Rodiny, školy aj jednotlivci sú vítaní.
+            zábrany ako v ZOO. Rodiny, partie aj jednotlivci sú vítaní.
           </p>
         </header>
 
@@ -129,8 +133,8 @@ const animals = [
           >
             <h3 class="font-display text-xl text-ink">Otvorené po dohode</h3>
             <p class="font-body text-base text-ink-muted leading-relaxed">
-              Termín návštevy si dohodnete telefonicky — vďaka tomu vás čaká farmár,
-              nie zatvorené dvere. Najlepšie zavolať deň vopred.
+              Termín si dohodnete telefonicky — vďaka tomu vás čaká farmár, nie
+              zatvorené dvere. Najlepšie zavolať deň vopred.
             </p>
             <a
               href="tel:+421905323828"
@@ -159,16 +163,16 @@ const animals = [
           <article
             class="bg-surface border border-border rounded-lg p-6 flex flex-col gap-3"
           >
-            <h3 class="font-display text-xl text-ink">Pre skupiny a školy</h3>
+            <h3 class="font-display text-xl text-ink">Predaj na farme</h3>
             <p class="font-body text-base text-ink-muted leading-relaxed">
-              Pripravíme program pre triedu, družinu alebo firemný team-building.
-              Faktúru vystavíme, alergény vieme.
+              Vajcia, mäso, med a vlastné víno priamo z farmy. Stačí zavolať vopred,
+              pripravíme čo potrebujete.
             </p>
             <a
-              href="/navsteva#skoly"
+              href="tel:+421905323828"
               class="mt-auto font-body text-base text-ink underline decoration-1 underline-offset-4 hover:text-brand"
             >
-              Skupinové návštevy →
+              Spýtať sa na ponuku →
             </a>
           </article>
         </div>
@@ -233,6 +237,65 @@ const animals = [
       </div>
     </section>
 
+    <!-- KUCHYŇA / OSLAVY -->
+    <section class="py-20 lg:py-24">
+      <div
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+      >
+        <article class="flex flex-col gap-6 lg:order-1">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+          >
+            Kuchyňa pri farme
+          </p>
+          <h2 class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]">
+            Stôl pre
+            <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">
+              14 ľudí,
+            </span> navarený z toho, čo ste videli na ceste sem.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink">
+            Vedľa domu si rodina sama zrekonštruovala profesionálnu kuchyňu. Farmárka
+            a farmár spolu navaria celé menu, napečú tortu, pripravia catering —
+            pre oslavu, krstiny, team-building, posedenie s partiou alebo akúkoľvek
+            inú akciu až pre štrnásť ľudí.
+          </p>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Vajcia z liahne, mäso z výbehu, med od vlastných včiel, víno z vlastnej
+            pivnice. Farm-to-table doslova, nie ako marketing.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <a
+              href="/kuchyna"
+              class="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body font-semibold text-surface transition hover:opacity-90"
+            >
+              Dohodnúť termín
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="tel:+421905323828"
+              class="font-body text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+            >
+              +421 905 323 828
+            </a>
+          </div>
+        </article>
+
+        <figure
+          class="lg:order-2 relative aspect-[4/3] rounded-lg overflow-hidden"
+        >
+          <Image
+            src={kuchynaImg}
+            alt="Pštrosie vajce v dekoračnom aranžmáne so sušenými makovicami a perami"
+            widths={[500, 750, 1100]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+      </div>
+    </section>
+
     <!-- O NÁS / PRÍBEH -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div
@@ -256,7 +319,7 @@ const animals = [
             O nás
           </p>
           <h2 class="font-display text-4xl lg:text-5xl text-ink leading-[1.05]">
-            Rodina, ktorá pštrosy chová,<br />nie predáva ako značku.
+            Rodina, ktorá <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">pštrosy chová</span>, nie predáva ako značku.
           </h2>
           <p class="font-body text-lg leading-relaxed text-ink">
             Začali sme s tromi pštrosmi v roku 2015. Dnes ich máme tridsať a každý
@@ -289,8 +352,8 @@ const animals = [
           height={80}
           class="rounded-full"
         />
-        <h2 class="font-display text-4xl lg:text-5xl text-ink leading-[1.1]">
-          Šťastný pštros,<br />dobrý pštros.
+        <h2 class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.1]">
+          Šťastný pštros, dobrý pštros.
         </h2>
         <p class="font-body text-lg leading-relaxed text-ink-muted max-w-xl">
           Otvorení pre návštevy, predaj vajec a mäsa, gastro spoluprácu aj príležitostné
