@@ -154,7 +154,7 @@ Tri zámerne odlišné smery, ktoré ukázať farmárom. Cieľ: vyvolať reakciu
 - Fotografia: prirodzené svetlo, deti so zvieratami, ruky a tváre, žiadne stockové
 
 **Voice register:** vtipný, prístupný, s miernou hravosťou okolo pštrosov  
-*Príklad copy: „Pštros sa nemusí všetkým páčiť. Niektorí si nás obľúbia, niektorí radšej zostanú pri morkách. Aj morky tu máme."*
+*Príklad copy: „Pštros nie je pre každého. Ak hľadáš zviera, čo lieta — sme zle. Ak hľadáš vajce, ktoré zasýti rodinu — sme správna adresa."*
 
 **Referenčné značky:** Oatly (voice/character, nie vizuál), Tony's Chocolonely (otvorenosť), Bird+Wolf, Hawkstone Brewery
 

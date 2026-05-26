@@ -2,6 +2,15 @@
 
 > Päť reprezentatívnych osôb, ktoré sa rozhodujú na základe tohto webu. Pri akejkoľvek dizajnovej alebo obsahovej otázke sa pýtaj: **„Čo by chcela Mária? Čo by hľadal Tomáš?"** Personas nie sú statistika, sú to nástroje rozhodovania.
 
+## Active Persona Status (2026-05-26)
+
+Po telefonáte s farmármi a pivote scope-u na pštros-only (viď `00-project-overview.md` Fáza 1 scope constraint):
+
+- **Mária, Tomáš, Anna, Mišo** — aktívne. Web dizajnujeme primárne pre nich.
+- **Eva (učiteľka MŠ)** — **momentálne neaplikovateľná**. Farma nemá registráciu pre programy pre školy a aktuálne školy nenavštevujú farmu. Persona zostáva v doku ako budúci cieľ — keď príde registrácia a school-pošta, vrátime sa k nej. Pri súčasných UX/copy rozhodnutiach ju neberte ako blocker.
+
+V sekciách nižšie sú aj prvky pre Evu (B2B/skupinová cesta, pdf programy, fakturácia pre školy). Tieto časti **neimplementujeme** v MVP — sú zachované pre referenciu.
+
 ---
 
 ## 1. Mária Horváthová — víkendová mama

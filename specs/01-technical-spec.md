@@ -81,7 +81,7 @@ src/
 ├── content/
 │   ├── config.ts                 # Zod schémy pre collections
 │   ├── aktuality/                # MDX: novinky, oznamy
-│   ├── zvierata/                 # MDX: pštros, kura, morka, králik, včely
+│   ├── zvierata/                 # MDX: pštros (jediný registrovaný chov — viď 00-project-overview)
 │   ├── stranky/                  # MDX: O nás, Kontakt, Návšteva
 │   └── galeria/                  # JSON manifesty albumov
 ├── pages/

@@ -8,7 +8,11 @@ Redesign of **farmakerestur.sk**, a Slovak family ostrich farm in Križovany nad
 
 ## Current state
 
-Pre-scaffold. The repo currently contains only `/specs/` and `existing-logo.png` — no `package.json`, no `src/`, no toolchain yet. The first implementation task will be scaffolding the Astro project per `specs/01-technical-spec.md`.
+Astro 5 scaffold complete with homepage, `/pstros`, and three brand-mockup routes. Specs locked through `05-design-system.md`. Detail pages (`/kuchyna`, `/o-nas`, `/kontakt`, `/navsteva`, `/galeria`) still pending.
+
+## Scope constraint (2026-05-26)
+
+Farm has registration **only for ostrich husbandry**. They physically keep chickens, turkeys, rabbits and bees, but **none of these may be mentioned** on the public site as farm-kept animals or sources of products. The site is primarily about pštros; the kuchyňa (catering kitchen, 14-person event capacity, joint farmárka + farmár operation) is the second hook. Wine they produce themselves is referenced only in the kuchyňa/catering context, not as a standalone product. See project memory `registration-only-pstros` for the full rule, and `kitchen-catering` and `own-wine` for related facts.
 
 ## Source of truth: `/specs/`
 
@@ -110,7 +114,7 @@ Three visual directions (A — warm earthy / B — bold confident / C — playfu
 
 ## Personas (one paragraph)
 
-Optimize for five personas (full profiles in `specs/03-personas.md`): **Mária** (weekend mom from Bratislava), **Tomáš** (chef from Trnava, B2B), **Anna** (67yo loyalist, low tech comfort), **Mišo** (millennial foodie, social-driven), **Eva** (kindergarten teacher organizing school trips). Recurring rules across personas: phone number visible on every page, real photos not stock, no jargon / no English terms in UI, B2B and school paths must be distinct from the consumer path.
+Optimize for **four active personas** (full profiles in `specs/03-personas.md` §Active Persona Status): **Mária** (weekend mom from Bratislava), **Tomáš** (chef from Trnava, B2B), **Anna** (67yo loyalist, low tech comfort), **Mišo** (millennial foodie, social-driven). The fifth persona — **Eva** (kindergarten teacher) — is currently **inactive**: the farm has no school-group offering and isn't visited by schools (see project memory `no-school-visits`). Recurring rules across active personas: phone number visible on every page, real photos not stock, no jargon / no English terms in UI, B2B contact path distinct from the consumer path.
 
 ## Working agreement for Claude Code
 

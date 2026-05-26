@@ -42,7 +42,19 @@ Tri piliere, na ktorých web stojí:
 ## Project Scope
 
 ### Fáza 1 — Marketing web (MVP)
-- Domovská stránka, O nás, sekcie pre jednotlivé zvieratá (pštrosy, sliepky, morky, králiky, včely), galéria, kontakt, aktuality
+
+**Scope constraint (potvrdené 2026-05-26):** Farma má registráciu len na chov pštrosov. Sliepky, morky, zajace a včely fyzicky chovajú, ale **nesmieme ich na webe spomenúť** ako produkčný chov, predaj alebo súčasť ponuky. Web sa primárne točí okolo pštrosa; kuchyňa pri farme (eventy, oslavy, catering, 14-osôb kapacita) je druhým ťahákom a prepája farmu so stolom cez vlastné suroviny (pštrosie produkty, zelenina z vlastnej záhradky).
+
+Stránky a sekcie:
+- Domovská stránka (hero + Návšteva + Pštros teaser + Kuchyňa + O nás + CTA)
+- Sekcia o pštrosovi (`/pstros`)
+- Sekcia o kuchyni a eventoch (`/kuchyna`)
+- Návšteva — praktické info (`/navsteva`)
+- O nás (`/o-nas`)
+- Kontakt s formulárom (`/kontakt`)
+- Galéria — neskôr, IG-driven (`/galeria`)
+
+Konvencie:
 - Slovenčina primárne, anglická verzia odložená
 - Statická generácia, obsah v MDX
 - Kontaktný formulár + Google Mapa
