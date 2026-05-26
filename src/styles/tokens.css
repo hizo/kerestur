@@ -1,0 +1,36 @@
+/* Semantic design tokens.
+ * Components MUST reference these — not Tailwind defaults or primitive OKLCH values directly.
+ * Direction-specific palettes (A/B/C) live in src/styles/mockups/[a|b|c].css and override
+ * these on the corresponding mockup route. The winning direction will replace these defaults
+ * in 05-design-system.md.
+ */
+
+:root {
+  --color-surface: oklch(99% 0.005 80);
+  --color-surface-muted: oklch(96% 0.01 80);
+  --color-border: oklch(88% 0.01 80);
+
+  --color-ink: oklch(20% 0.02 80);
+  --color-ink-muted: oklch(45% 0.02 80);
+
+  --color-brand: oklch(40% 0.05 80);
+  --color-accent: oklch(70% 0.15 50);
+
+  --font-display: ui-serif, Georgia, serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
