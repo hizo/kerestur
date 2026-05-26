@@ -1,0 +1,75 @@
+---
+import MockupLayout from '@/layouts/MockupLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../../specs/photos/7.jpg';
+import logoImage from '../../../specs/existing-logo.png';
+---
+
+<MockupLayout
+  direction="b"
+  title="Direction B — Hrdý a sebavedomý · Farma Kerestúr"
+  description="Mockup hero — bold confident direction"
+  label="B · Hrdý a sebavedomý"
+>
+  <main class="min-h-screen grid lg:grid-cols-2 bg-ink text-surface">
+    <article class="flex flex-col justify-between p-8 lg:p-14 order-2 lg:order-1 gap-12">
+      <header class="flex items-center justify-between">
+        <Image
+          src={logoImage}
+          alt="Farma Kerestúr"
+          width={56}
+          height={56}
+          class="rounded-full"
+        />
+        <span
+          class="font-display text-[0.7rem] uppercase tracking-[0.3em] text-accent leading-tight text-right"
+        >
+          Šťastný pštros,<br />dobrý pštros.
+        </span>
+      </header>
+
+      <div class="flex flex-col gap-8 max-w-xl">
+        <h1
+          class="font-display font-extrabold text-balance text-[clamp(3rem,8vw,7rem)] leading-[0.92] tracking-tight text-surface"
+        >
+          1 vajce.<br />1,5&nbsp;kg.<br /><span class="text-accent">24 kuracích.</span>
+        </h1>
+
+        <p class="font-body text-lg lg:text-xl leading-snug text-surface-muted max-w-md">
+          Najbližšia pštrosia farma 30 minút od Bratislavy. Otvorené pre návštevy, predaj
+          a gastro dodávky.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-8">
+        <a
+          href="#navsteva"
+          class="inline-flex items-center gap-3 bg-accent px-8 py-4 font-display font-bold uppercase tracking-[0.18em] text-ink text-sm transition hover:opacity-90"
+        >
+          Návšteva
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="tel:+421905323828"
+          class="font-display text-sm uppercase tracking-[0.18em] text-surface hover:text-accent"
+        >
+          +421 905 323 828
+        </a>
+      </div>
+    </article>
+
+    <figure
+      class="relative aspect-[4/3] lg:aspect-auto lg:min-h-screen overflow-hidden order-1 lg:order-2"
+    >
+      <Image
+        src={heroImage}
+        alt="Pštros pozerá priamo do objektívu na zimnom výbehu"
+        widths={[600, 900, 1400, 1800]}
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    </figure>
+  </main>
+</MockupLayout>

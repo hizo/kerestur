@@ -1,0 +1,101 @@
+---
+import MockupLayout from '@/layouts/MockupLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../../specs/photos/6.jpg';
+import logoImage from '../../../specs/existing-logo.png';
+---
+
+<MockupLayout
+  direction="c"
+  title="Direction C — Hravý prirodzený · Farma Kerestúr"
+  description="Mockup hero — playful natural direction"
+  label="C · Hravý prirodzený"
+>
+  <main class="min-h-screen bg-surface text-ink overflow-hidden">
+    <header class="flex items-center justify-between gap-6 px-8 lg:px-14 pt-8">
+      <div class="flex items-center gap-4">
+        <Image
+          src={logoImage}
+          alt=""
+          width={56}
+          height={56}
+          class="rounded-full shrink-0"
+        />
+        <p class="font-body text-sm text-ink-muted">
+          Šťastný pštros, dobrý pštros.
+        </p>
+      </div>
+      <span
+        class="hidden md:inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)]/15 px-4 py-1.5 font-body text-sm text-[color-mix(in_oklab,var(--color-accent)_75%,var(--color-ink))]"
+      >
+        <span class="size-2 rounded-full bg-accent"></span>
+        Otvorené pre návštevy
+      </span>
+    </header>
+
+    <section class="grid lg:grid-cols-[3fr_2fr] items-center gap-10 lg:gap-16 px-8 lg:px-14 pt-12 pb-20">
+      <article class="flex flex-col gap-8 max-w-2xl">
+        <h1
+          class="font-display font-normal text-balance text-[clamp(2.75rem,6vw,5.25rem)] leading-[1.02] text-ink"
+        >
+          Pštros sa nemusí <em class="not-italic text-brand">všetkým</em> páčiť.
+        </h1>
+
+        <p class="font-body text-lg lg:text-xl leading-relaxed text-ink-muted max-w-xl">
+          Niektorí si nás obľúbia, niektorí radšej zostanú pri morkách. Aj morky tu máme.
+          A zajace, sliepky, včely a jednu rodinu, ktorá to celé vedie od roku 2015.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-6 pt-2">
+          <a
+            href="#navsteva"
+            class="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 font-body font-medium text-surface transition hover:opacity-92"
+          >
+            Poďte k nám!
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="tel:+421905323828"
+            class="font-body text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+          >
+            +421 905 323 828
+          </a>
+        </div>
+
+        <p class="font-body text-sm text-ink-muted pt-4">
+          Križovany nad Dudváhom · 30 minút od Bratislavy
+        </p>
+      </article>
+
+      <figure
+        class="relative aspect-[4/5] w-full max-w-md lg:max-w-none mx-auto"
+        style="transform: rotate(-1.5deg);"
+      >
+        <div
+          class="absolute inset-0 bg-accent"
+          style="border-radius: 56% 44% 52% 48% / 48% 52% 48% 52%;"
+        ></div>
+        <div
+          class="absolute inset-3 overflow-hidden"
+          style="border-radius: 54% 46% 52% 48% / 48% 52% 48% 52%;"
+        >
+          <Image
+            src={heroImage}
+            alt="Mláďa pštrosa zblízka, prvé dni života na farme"
+            widths={[400, 600, 900, 1200]}
+            sizes="(min-width: 1024px) 40vw, 90vw"
+            loading="eager"
+            fetchpriority="high"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+        <span
+          class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-ink text-surface px-4 py-1.5 rounded-full font-body text-xs"
+          style="transform: translate(-50%, 0) rotate(2deg);"
+        >
+          Mláďatá · jar 2026
+        </span>
+      </figure>
+    </section>
+  </main>
+</MockupLayout>

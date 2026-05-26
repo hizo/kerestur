@@ -1,0 +1,80 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const directions = [
+  {
+    slug: 'a',
+    label: 'Teplá zem',
+    tagline: 'Rodinný príbeh, foodie magazín',
+    summary:
+      'Warm earthy paleta (okry, olivová, mahogany), serif headline (Fraunces), atmosférická hero fotka. Rezonuje s rodinami a šéfkuchármi.',
+    vibe: 'storytelling',
+  },
+  {
+    slug: 'b',
+    label: 'Hrdý a sebavedomý',
+    tagline: 'Modern butcher, design-forward',
+    summary:
+      'Vysoký kontrast (near-black + krém + žĺtok akcent), jediný geometrický sans (Bricolage Grotesque), fact-driven copy. Rezonuje s mladými foodies a B2B.',
+    vibe: 'terse facts',
+  },
+  {
+    slug: 'c',
+    label: 'Hravý prirodzený',
+    tagline: 'Friendly, slightly quirky',
+    summary:
+      'Sandy + coral + fresh green, expressive serif (DM Serif Display) s priateľským sans. Funguje cez všetkých 5 person. Developer favorit.',
+    vibe: 'playful, warm',
+  },
+];
+---
+
+<Base
+  title="Brand mockupy — Farma Kerestúr"
+  description="Tri smery dizajnu pre porovnanie. Iba homepage hero, žiadny ďalší obsah."
+>
+  <main class="mx-auto max-w-4xl px-6 py-16">
+    <header class="mb-12">
+      <p class="font-body text-sm uppercase tracking-[0.2em] text-ink-muted mb-3">
+        Brand validation — kolo 1
+      </p>
+      <h1 class="font-display text-4xl lg:text-5xl text-ink mb-4">
+        Tri smery, jeden pštros.
+      </h1>
+      <p class="font-body text-lg text-ink-muted max-w-2xl">
+        Klikni na každý smer, otvor v novej karte a porovnaj. Iba hero sekcie — ostatné
+        časti webu vznikajú až po locku víťaza. Kontext v
+        <a class="underline" href="https://github.com/" rel="noopener">specs/04-brand-strategy.md §6</a>.
+      </p>
+    </header>
+
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        directions.map((d) => (
+          <li>
+            <a
+              href={`/mockup/${d.slug}`}
+              class="block h-full rounded-xl border border-border bg-surface-muted p-6 transition hover:border-ink"
+            >
+              <div class="flex items-baseline gap-3 mb-3">
+                <span class="font-display text-3xl text-ink">{d.slug.toUpperCase()}</span>
+                <span class="font-body text-sm text-ink-muted">· {d.vibe}</span>
+              </div>
+              <h2 class="font-display text-xl text-ink mb-1">{d.label}</h2>
+              <p class="font-body text-sm text-ink-muted mb-4">{d.tagline}</p>
+              <p class="font-body text-sm leading-relaxed text-ink">{d.summary}</p>
+              <p class="mt-5 font-body text-sm text-ink underline decoration-1 underline-offset-4">
+                Otvoriť mockup →
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <footer class="mt-12 font-body text-sm text-ink-muted">
+      Po výbere (alebo hybride) zafixujeme palety, fonty a tokens do
+      <code class="text-ink">specs/05-design-system.md</code> a začneme stavať celý web.
+    </footer>
+  </main>
+</Base>

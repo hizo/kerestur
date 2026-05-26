@@ -1,0 +1,41 @@
+---
+import '@/styles/global.css';
+import '@/styles/mockups.css';
+
+type Direction = 'a' | 'b' | 'c';
+
+interface Props {
+  direction: Direction;
+  title: string;
+  description?: string;
+  label?: string;
+}
+
+const { direction, title, description, label } = Astro.props;
+
+const fontHref = {
+  a: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@400;500;600&display=swap',
+  b: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&display=swap',
+  c: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600&display=swap',
+}[direction];
+---
+
+<!doctype html>
+<html lang="sk" data-direction={direction}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontHref} />
+  </head>
+  <body>
+    <slot />
+    {label && <span class="mockup-label">{label}</span>}
+    <a class="mockup-nav" href="/mockup">← Späť na výber</a>
+  </body>
+</html>

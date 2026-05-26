@@ -1,0 +1,73 @@
+---
+import MockupLayout from '@/layouts/MockupLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../../specs/photos/1.jpg';
+import logoImage from '../../../specs/existing-logo.png';
+---
+
+<MockupLayout
+  direction="a"
+  title="Direction A — Teplá zem · Farma Kerestúr"
+  description="Mockup hero — warm earthy direction"
+  label="A · Teplá zem"
+>
+  <main class="min-h-screen grid lg:grid-cols-[3fr_2fr] bg-surface text-ink">
+    <figure class="relative aspect-[4/3] lg:aspect-auto lg:min-h-screen overflow-hidden">
+      <Image
+        src={heroImage}
+        alt="Pštros kráča pri západe slnka po výbehu Farmy Kerestúr"
+        widths={[600, 900, 1400, 1800]}
+        sizes="(min-width: 1024px) 60vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    </figure>
+
+    <article class="flex flex-col justify-center gap-8 px-8 py-12 lg:px-16 lg:py-20 max-w-2xl">
+      <div class="flex items-center gap-5">
+        <Image
+          src={logoImage}
+          alt=""
+          width={72}
+          height={72}
+          class="rounded-full shrink-0"
+        />
+        <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight">
+          Šťastný pštros,<br />dobrý pštros.
+        </p>
+      </div>
+
+      <h1
+        class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
+      >
+        Rodinná pštrosia farma
+        <span class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]">
+          30 minút
+        </span>
+        od&nbsp;Bratislavy.
+      </h1>
+
+      <p class="font-body text-lg leading-relaxed text-ink-muted">
+        Od roku 2015 chováme pštrosy, sliepky, morky, zajace a včely v Križovanoch nad Dudváhom.
+        Príďte sa pozrieť, ako vyzerá farma, keď nie je len pre fotku.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-6 pt-2">
+        <a
+          href="#navsteva"
+          class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-body font-semibold text-ink transition hover:opacity-90"
+        >
+          Príďte sa pozrieť
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="tel:+421905323828"
+          class="font-body text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+        >
+          +421 905 323 828
+        </a>
+      </div>
+    </article>
+  </main>
+</MockupLayout>
