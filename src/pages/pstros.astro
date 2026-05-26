@@ -1,18 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import { getEntry, render } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
-import pstrosyImg from '../../specs/photos/3.jpg';
+import heroImg from '../../specs/photos/1.jpg';
 import mladeImg from '../../specs/photos/mlade-2.jpg';
+import pstrosyImg from '../../specs/photos/3.jpg';
 import vajceImg from '../../specs/photos/vajce-presvietene.png';
 
-const entry = await getEntry('zvierata', 'pstros');
-if (!entry) {
-  throw new Error('Missing required content entry: zvierata/pstros');
-}
-const { Content } = await render(entry);
+const lead =
+  'Najväčší žijúci vták na Zemi. Behá rýchlosťou až 70 km/h a v zajatí sa dožíva šesťdesiatky. U nás žije v prirodzených podmienkach a je srdcom farmy.';
 
 const gallery = [
   {
@@ -33,7 +30,7 @@ const gallery = [
 ];
 ---
 
-<Base title={`${entry.data.name} — Farma Kerestúr`} description={entry.data.lead}>
+<Base title="Pštros africký — Farma Kerestúr" description={lead}>
   <SiteHeader />
 
   <main>
@@ -43,8 +40,8 @@ const gallery = [
           class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] overflow-hidden"
         >
           <Image
-            src={entry.data.heroImage}
-            alt={entry.data.name}
+            src={heroImg}
+            alt="Pštros kráča pri západe slnka po výbehu Farmy Kerestúr"
             widths={[600, 900, 1400, 1800]}
             sizes="(min-width: 1024px) 60vw, 100vw"
             loading="eager"
@@ -64,17 +61,50 @@ const gallery = [
           <h1
             class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
           >
-            {entry.data.name}
+            Pštros africký
           </h1>
           <p class="font-body text-lg leading-relaxed text-ink-muted">
-            {entry.data.lead}
+            {lead}
           </p>
         </div>
       </header>
 
       <div class="bg-surface-muted py-16 lg:py-24">
         <div class="mx-auto max-w-3xl px-6 prose">
-          <Content />
+          <h2>Pštros africký dvojprstý</h2>
+          <p><em>Struthio camelus</em></p>
+          <p><strong>Pôvod:</strong> Afrika</p>
+          <p>
+            Pštros dvojprstý alebo pštros africký je vták z čeľade pštrosovité.
+            Je to najväčší žijúci vták na Zemi.
+          </p>
+          <p>
+            Pštros má dlhý neoperený krk, malú hlavu, mohutné telo a dlhé svalnaté
+            nohy. Je priťažký na lietanie, ale zato rýchlo a vytrvalo behá —
+            rýchlosťou 70 km/h vydrží bežať až tridsať minút.
+          </p>
+          <p>
+            Pštrosy vytvárajú kŕdle zložené z oboch pohlaví, iba zriedkavo sa
+            vyskytujú jednotlivo.
+          </p>
+
+          <h2>Charakteristika</h2>
+          <ul>
+            <li>nelietavý vták, vyniká stehenným svalstvom — bežec</li>
+            <li>najväčší žijúci vták na Zemi</li>
+            <li>rýchlosť až 70 km/h</li>
+            <li>v zajatí sa dožíva až šesťdesiatich rokov</li>
+          </ul>
+
+          <h2>Význam chovu</h2>
+          <p>
+            <strong>Mäso</strong> — výživné, diétne, mäkké mäso vysokej kvality
+            s nízkym obsahom tuku a cholesterolu.
+          </p>
+          <p>
+            <strong>Vajcia</strong> — jedlé, jedno vajce zasýti približne osem
+            až desať ľudí.
+          </p>
         </div>
       </div>
 
