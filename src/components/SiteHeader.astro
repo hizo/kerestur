@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../specs/existing-logo.png';
+
+const nav = [
+  { href: '/zvierata', label: 'Zvieratá' },
+  { href: '/navsteva', label: 'Návšteva' },
+  { href: '/aktuality', label: 'Aktuality' },
+  { href: '/o-nas', label: 'O nás' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+---
+
+<header class="bg-surface border-b border-border">
+  <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between gap-6">
+    <a href="/" class="flex items-center gap-3 group">
+      <Image
+        src={logo}
+        alt="Farma Kerestúr"
+        width={48}
+        height={48}
+        class="rounded-full shrink-0"
+      />
+      <span class="font-display text-lg text-ink group-hover:text-brand transition">
+        Farma Kerestúr
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7" aria-label="Hlavná navigácia">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="font-body text-base text-ink-muted hover:text-ink transition"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="tel:+421905323828"
+      class="hidden sm:inline-flex items-center gap-2 font-body text-base font-medium text-ink hover:text-brand transition"
+      aria-label="Zavolať na farmu"
+    >
+      +421 905 323 828
+    </a>
+  </div>
+</header>

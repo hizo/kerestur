@@ -1,22 +1,319 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import heroImage from '../../specs/photos/1.jpg';
+import pstrosImg from '../../specs/photos/3.jpg';
+import mladaImg from '../../specs/photos/5.jpg';
+import vajceImg from '../../specs/photos/10.jpg';
+import farmariImg from '../../specs/photos/8.jpg';
+import logoImage from '../../specs/existing-logo.png';
+
+const animals = [
+  {
+    name: 'Pštrosy',
+    lead:
+      'Najväčší žijúci vták na Zemi. U nás žije v prirodzených podmienkach a je srdcom farmy od roku 2015.',
+    href: '/zvierata/pstros',
+    image: pstrosImg,
+    alt: 'Dva pštrosy v pokojnej póze na výbehu pri západe slnka',
+  },
+  {
+    name: 'Mláďatá',
+    lead:
+      'Liahnu sa od marca do júna. Prvé dni života strávia v teple liahne, potom prídu na výbeh s rodičmi.',
+    href: '/zvierata/pstros#mladata',
+    image: mladaImg,
+    alt: 'Pštrosie mláďa zblízka s charakteristickými pásikmi',
+  },
+  {
+    name: 'Pštrosie vajcia',
+    lead:
+      'Jedno vajce váži 1,5 kg a stačí na omeletu pre celú rodinu. Sezónne od marca do októbra.',
+    href: '/zvierata/pstros#vajcia',
+    image: vajceImg,
+    alt: 'Pštrosie vajce v sviežej tráve',
+  },
+];
 ---
 
 <Base
   title="Farma Kerestúr — rodinná pštrosia farma 30 minút od Bratislavy"
-  description="Šťastný pštros, dobrý pštros. Návštevy, vajcia, mäso, príbeh."
+  description="Šťastný pštros, dobrý pštros. Rodinná pštrosia farma v Križovanoch nad Dudváhom. Návštevy, vajcia, mäso, príbeh."
 >
-  <main class="mx-auto max-w-2xl px-6 py-16">
-    <h1 class="font-display text-4xl mb-4 text-ink">Farma Kerestúr</h1>
-    <p class="font-body text-ink-muted mb-6">
-      Scaffold v príprave. Reálny web prichádza po locku brand direction.
-    </p>
-    <a
-      href="/mockup"
-      class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 font-body text-sm text-surface hover:opacity-90"
-    >
-      Pozrieť brand mockupy
-      <span aria-hidden="true">→</span>
-    </a>
+  <SiteHeader />
+
+  <main>
+    <!-- HERO -->
+    <section class="grid lg:grid-cols-[3fr_2fr] bg-surface text-ink">
+      <figure
+        class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[640px] overflow-hidden"
+      >
+        <Image
+          src={heroImage}
+          alt="Pštros kráča pri západe slnka po výbehu Farmy Kerestúr"
+          widths={[600, 900, 1400, 1800]}
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </figure>
+
+      <article
+        class="flex flex-col justify-center gap-8 px-8 py-14 lg:px-14 lg:py-20 max-w-2xl"
+      >
+        <p
+          class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted leading-tight"
+        >
+          Šťastný pštros, dobrý pštros.
+        </p>
+
+        <h1
+          class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink"
+        >
+          Rodinná pštrosia farma
+          <span
+            class="bg-accent text-ink px-2 -mx-1 box-decoration-clone leading-[1.15]"
+          >
+            30 minút
+          </span>
+          od&nbsp;Bratislavy.
+        </h1>
+
+        <p class="font-body text-lg leading-relaxed text-ink-muted">
+          Od roku 2015 chováme pštrosy, sliepky, morky, zajace a včely v Križovanoch
+          nad Dudváhom. Príďte sa pozrieť, ako vyzerá farma, keď nie je len pre fotku.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-6 pt-2">
+          <a
+            href="#navsteva"
+            class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-body font-semibold text-ink transition hover:opacity-90"
+          >
+            Príďte sa pozrieť
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="tel:+421905323828"
+            class="font-body text-ink-muted underline decoration-1 underline-offset-4 hover:text-ink"
+          >
+            +421 905 323 828
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- NÁVŠTEVA -->
+    <section id="navsteva" class="bg-surface-muted py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Návšteva farmy
+          </p>
+          <h2 class="font-display text-4xl lg:text-5xl text-ink mb-4">
+            Príďte sa pozrieť na vlastné oči.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Pštrosy, mláďatá, vajcia — všetko zblízka, žiadne sklo, žiadne kovové
+            zábrany ako v ZOO. Rodiny, školy aj jednotlivci sú vítaní.
+          </p>
+        </header>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article
+            class="bg-surface border border-border rounded-lg p-6 flex flex-col gap-3"
+          >
+            <h3 class="font-display text-xl text-ink">Otvorené po dohode</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Termín návštevy si dohodnete telefonicky — vďaka tomu vás čaká farmár,
+              nie zatvorené dvere. Najlepšie zavolať deň vopred.
+            </p>
+            <a
+              href="tel:+421905323828"
+              class="mt-auto font-body text-base text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              +421 905 323 828
+            </a>
+          </article>
+
+          <article
+            class="bg-surface border border-border rounded-lg p-6 flex flex-col gap-3"
+          >
+            <h3 class="font-display text-xl text-ink">Ako sa k nám dostať</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Križovany nad Dudváhom 233. Autom 30 minút od Bratislavy, 15 minút od
+              Trnavy. Parkovanie priamo pred farmou.
+            </p>
+            <a
+              href="/kontakt#mapa"
+              class="mt-auto font-body text-base text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              Mapa a popis cesty →
+            </a>
+          </article>
+
+          <article
+            class="bg-surface border border-border rounded-lg p-6 flex flex-col gap-3"
+          >
+            <h3 class="font-display text-xl text-ink">Pre skupiny a školy</h3>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Pripravíme program pre triedu, družinu alebo firemný team-building.
+              Faktúru vystavíme, alergény vieme.
+            </p>
+            <a
+              href="/navsteva#skoly"
+              class="mt-auto font-body text-base text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              Skupinové návštevy →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZVIERATÁ -->
+    <section class="py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
+        >
+          <div class="max-w-2xl">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+            >
+              Naše zvieratá
+            </p>
+            <h2 class="font-display text-4xl lg:text-5xl text-ink mb-4">
+              Päť druhov, jedna farma.
+            </h2>
+            <p class="font-body text-lg leading-relaxed text-ink-muted">
+              Pštros je hlavná hviezda, ale nie sám. Sliepky, morky, zajace a včely
+              dotvárajú každodenný rytmus.
+            </p>
+          </div>
+          <a
+            href="/zvierata"
+            class="font-body text-base text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+          >
+            Všetky zvieratá →
+          </a>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            animals.map((a) => (
+              <a
+                href={a.href}
+                class="group block bg-surface border border-border rounded-lg overflow-hidden transition hover:border-ink"
+              >
+                <figure class="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={a.image}
+                    alt={a.alt}
+                    widths={[400, 600, 900]}
+                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                </figure>
+                <div class="p-6 flex flex-col gap-2">
+                  <h3 class="font-display text-2xl text-ink">{a.name}</h3>
+                  <p class="font-body text-base text-ink-muted leading-relaxed">
+                    {a.lead}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- O NÁS / PRÍBEH -->
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+      >
+        <figure class="relative aspect-[4/3] rounded-lg overflow-hidden">
+          <Image
+            src={farmariImg}
+            alt="Farmári z Farmy Kerestúr v predajni"
+            widths={[500, 750, 1100]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+
+        <article class="flex flex-col gap-6">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+          >
+            O nás
+          </p>
+          <h2 class="font-display text-4xl lg:text-5xl text-ink leading-[1.05]">
+            Rodina, ktorá pštrosy chová,<br />nie predáva ako značku.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink">
+            Začali sme s tromi pštrosmi v roku 2015. Dnes ich máme tridsať a každý
+            má svoje meno. Pridali sme sliepky, morky, zajace a včelstvá — všetko
+            v rytme, ktorý zvieratám vyhovuje, nie v rytme, ktorý vyhovuje účtovníctvu.
+          </p>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Príďte sa pozrieť. Možno tu nájdete viac ako pštrosa.
+          </p>
+          <div class="pt-2">
+            <a
+              href="/o-nas"
+              class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              Náš príbeh
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DOLE / CTA -->
+    <section class="py-20 lg:py-24">
+      <div class="mx-auto max-w-3xl px-6 text-center flex flex-col gap-6 items-center">
+        <Image
+          src={logoImage}
+          alt=""
+          width={80}
+          height={80}
+          class="rounded-full"
+        />
+        <h2 class="font-display text-4xl lg:text-5xl text-ink leading-[1.1]">
+          Šťastný pštros,<br />dobrý pštros.
+        </h2>
+        <p class="font-body text-lg leading-relaxed text-ink-muted max-w-xl">
+          Otvorení pre návštevy, predaj vajec a mäsa, gastro spoluprácu aj príležitostné
+          tipy do diskusie o slovenskom farmárstve.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center pt-2">
+          <a
+            href="/kontakt"
+            class="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body font-semibold text-surface transition hover:opacity-90"
+          >
+            Napíšte nám
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="tel:+421905323828"
+            class="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-body font-semibold text-ink transition hover:opacity-90"
+          >
+            +421 905 323 828
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <SiteFooter />
 </Base>

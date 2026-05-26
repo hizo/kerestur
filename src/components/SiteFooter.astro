@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../specs/existing-logo.png';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink text-surface mt-24">
+  <div class="mx-auto max-w-6xl px-6 py-16 grid gap-12 md:grid-cols-3">
+    <div>
+      <div class="flex items-center gap-3 mb-5">
+        <Image
+          src={logo}
+          alt=""
+          width={48}
+          height={48}
+          class="rounded-full"
+        />
+        <span class="font-display text-xl text-surface">Farma Kerestúr</span>
+      </div>
+      <p class="font-body text-base leading-relaxed text-surface/80">
+        Šťastný pštros, dobrý pštros. Rodinná pštrosia farma v Križovanoch nad Dudváhom
+        od roku 2015.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-display text-base text-surface mb-3">Kontakt</h3>
+      <address class="font-body text-base not-italic leading-relaxed text-surface/80">
+        Križovany nad Dudváhom 233<br />
+        919 24<br />
+        <a
+          href="tel:+421905323828"
+          class="text-surface underline decoration-1 underline-offset-4 hover:text-accent"
+        >
+          +421 905 323 828
+        </a><br />
+        <a
+          href="mailto:farma@kerestur.sk"
+          class="text-surface underline decoration-1 underline-offset-4 hover:text-accent"
+        >
+          farma@kerestur.sk
+        </a>
+      </address>
+    </div>
+
+    <div>
+      <h3 class="font-display text-base text-surface mb-3">Návšteva</h3>
+      <p class="font-body text-base leading-relaxed text-surface/80">
+        Pondelok – sobota: 10:00 – 17:00<br />
+        Nedeľa: zatvorené<br /><br />
+        Skupinové návštevy a B2B dodávky po dohode telefonicky.
+      </p>
+    </div>
+  </div>
+
+  <div class="border-t border-surface/15">
+    <p
+      class="mx-auto max-w-6xl px-6 py-6 font-body text-sm text-surface/60"
+    >
+      © {year} Farma Kerestúr · Križovany nad Dudváhom · Web vyvinutý s láskou pre rodinnú farmu.
+    </p>
+  </div>
+</footer>
