@@ -4,6 +4,9 @@ import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
 import farmariImg from '../../specs/photos/farmari.jpg';
+import cellarImg from '../../specs/photos/farmari-3.jpg';
+import workCoupleImg from '../../specs/photos/farmari-2.jpg';
+import workJozefImg from '../../specs/photos/jozef-1.jpg';
 
 const lead =
   'Rodinná farma v Križovanoch nad Dudváhom. Od roku 2015 chováme pštrosy — nie ako agrobiznis, ale ako spôsob života.';
@@ -83,39 +86,99 @@ const lead =
 
     <!-- SILVIA & JOZEF -->
     <section class="py-20 lg:py-24">
-      <div class="mx-auto max-w-3xl px-6 flex flex-col gap-6">
-        <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted">
-          Kto sme
-        </p>
-        <h2
-          class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
-        >
-          Dvaja ľudia, jedna farma.
-        </h2>
-        <p class="font-body text-lg leading-relaxed text-ink">
-          Farmu vedieme spolu — <strong>Silvia</strong> a <strong>Jozef</strong>.
-          Pri pštrosoch sme obaja: kŕmenie, liaheň, výbeh, každodenný rytmus.
-        </p>
-        <p class="font-body text-lg leading-relaxed text-ink-muted">
-          V kuchyni pri farme vedie Silvia — torty, oslavy a catering pre malé
-          skupiny pripravuje z toho, čo na farme dorastie. Vajcia, zelenina,
-          byliny: cesta od dvora po stôl meria pár metrov.
-        </p>
-        <div class="flex flex-wrap items-center gap-6 pt-2">
-          <a
-            href="/kuchyna"
-            class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+      <div
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+      >
+        <figure class="relative aspect-[4/3] rounded-lg overflow-hidden">
+          <Image
+            src={cellarImg}
+            alt="Silvia a Jozef v pivnici pri farme"
+            widths={[500, 750, 1100]}
+            sizes="(min-width: 1024px) 45vw, 90vw"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </figure>
+
+        <article class="flex flex-col gap-6">
+          <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted">
+            Kto sme
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
           >
-            Kuchyňa pri farme
-            <span aria-hidden="true">→</span>
-          </a>
-          <a
-            href="/pstros"
-            class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            Dvaja ľudia, jedna farma.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink">
+            Farmu vedieme spolu — <strong>Silvia</strong> a <strong>Jozef</strong>.
+            Pri pštrosoch sme obaja: kŕmenie, liaheň, výbeh, každodenný rytmus.
+          </p>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            V kuchyni pri farme vedie Silvia — torty, oslavy a catering pre malé
+            skupiny pripravuje z toho, čo na farme dorastie. Cesta od dvora po stôl
+            meria pár metrov.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <a
+              href="/kuchyna"
+              class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              Kuchyňa pri farme
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/pstros"
+              class="inline-flex items-center gap-2 font-body font-medium text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              Náš pštros
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRI PRÁCI -->
+    <section class="bg-surface-muted py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
           >
-            Náš pštros
-            <span aria-hidden="true">→</span>
-          </a>
+            Pri práci
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink leading-[1.05]"
+          >
+            Na farme nie je deň ako deň.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink-muted mt-4">
+            Roboty je vždy dosť a sme pri nej obaja. Od skorého rána po západ slnka —
+            ruky v rukaviciach, čižmy v blate, a vždy niečo nové na učenie.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          <figure class="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src={workCoupleImg}
+              alt="Silvia a Jozef v ochranných oblekoch pri práci na farme"
+              widths={[500, 750, 1100]}
+              sizes="(min-width: 640px) 45vw, 90vw"
+              loading="lazy"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </figure>
+          <figure class="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src={workJozefImg}
+              alt="Jozef v ochrannom obleku pri každodennej práci na farme"
+              widths={[500, 750, 1100]}
+              sizes="(min-width: 640px) 45vw, 90vw"
+              loading="lazy"
+              class="absolute inset-0 h-full w-full object-cover"
+            />
+          </figure>
         </div>
       </div>
     </section>
