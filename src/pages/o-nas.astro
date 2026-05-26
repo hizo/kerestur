@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
-import farmariImg from '../../specs/photos/farmari.jpg';
+import farmariImg from '../../specs/photos/farmari-hero.jpg';
 import cellarImg from '../../specs/photos/farmari-3.jpg';
 import workKitchenImg from '../../specs/photos/farmari-4.jpg';
 import workGrillImg from '../../specs/photos/farmari-5.jpg';
@@ -23,12 +23,12 @@ const lead =
       >
         <Image
           src={farmariImg}
-          alt="Silvia a Jozef, farmári z Farmy Kerestúr, pred kamenným domom"
+          alt="Silvia a Jozef v slovenských krojoch — Silvia s krčahom makovíc, Jozef s vidlami"
           widths={[600, 900, 1400, 1800]}
           sizes="(min-width: 1024px) 60vw, 100vw"
           loading="eager"
           fetchpriority="high"
-          class="absolute inset-0 h-full w-full object-cover"
+          class="absolute inset-0 h-full w-full object-cover object-[50%_20%]"
         />
       </figure>
 
@@ -208,10 +208,10 @@ const lead =
             +421 905 323 828
           </a>
           <a
-            href="/navsteva"
+            href="/kontakt"
             class="inline-flex items-center gap-2 rounded-full border border-surface/30 px-7 py-3.5 font-body font-semibold text-surface transition hover:bg-surface/10"
           >
-            Návšteva farmy
+            Napíšte nám
           </a>
         </div>
       </div>

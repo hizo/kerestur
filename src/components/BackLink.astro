@@ -1,0 +1,23 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = '/', label = 'Späť na úvod' } = Astro.props;
+---
+
+<nav
+  class="bg-surface border-t border-border"
+  aria-label="Sekundárna navigácia"
+>
+  <div class="mx-auto max-w-3xl px-6 py-10 font-body text-base">
+    <a
+      href={href}
+      class="inline-flex items-center gap-2 text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+    >
+      <span aria-hidden="true">←</span>
+      {label}
+    </a>
+  </div>
+</nav>

@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import BackLink from '@/components/BackLink.astro';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
@@ -7,6 +8,11 @@ import heroImg from '../../specs/photos/1.jpg';
 import mladeImg from '../../specs/photos/mlade-2.jpg';
 import pstrosyImg from '../../specs/photos/3.jpg';
 import vajceImg from '../../specs/photos/vajce-presvietene.png';
+import winterImg from '../../specs/photos/pstros-1.jpg';
+import maleImg from '../../specs/photos/pstros-2.jpg';
+import flockImg from '../../specs/photos/pstros-3.jpg';
+import youngImg from '../../specs/photos/pstros-4.jpg';
+import closeupImg from '../../specs/photos/pstros-5.jpg';
 
 const lead =
   'Najväčší žijúci vták na Zemi. Behá rýchlosťou až 70 km/h a v zajatí sa dožíva šesťdesiatky. U nás žije v prirodzených podmienkach a je srdcom farmy.';
@@ -146,14 +152,110 @@ const gallery = [
         </div>
       </section>
 
-      <nav class="mx-auto max-w-3xl px-6 pb-20 font-body text-base">
-        <a
-          href="/"
-          class="text-ink underline decoration-1 underline-offset-4 hover:text-brand"
-        >
-          ← Späť na úvod
-        </a>
-      </nav>
+      <section class="py-16 lg:py-24 bg-surface-muted">
+        <div class="mx-auto max-w-6xl px-6">
+          <header class="mb-10 max-w-2xl">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+            >
+              Z výbehu
+            </p>
+            <h2
+              class="font-display text-balance text-3xl lg:text-4xl text-ink leading-[1.1]"
+            >
+              Kŕdeľ počas celého roka.
+            </h2>
+            <p class="font-body text-lg leading-relaxed text-ink-muted mt-4">
+              V snehu aj pri západe slnka — pštrosy u nás žijú vonku a podľa
+              ročného obdobia mení výbeh aj svoju náladu.
+            </p>
+          </header>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            <figure class="flex flex-col gap-3">
+              <div class="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src={closeupImg}
+                  alt="Detail hlavy a krku pštrosa pri zlatom západe slnka"
+                  widths={[500, 750, 1100]}
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+                Zblízka. Zvedavý pohľad pri večernom svetle.
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col gap-3">
+              <div class="relative aspect-[3/4] overflow-hidden rounded-lg">
+                <Image
+                  src={maleImg}
+                  alt="Dospelý čierny pštrosí samec na výbehu pri západe slnka"
+                  widths={[500, 750, 1100]}
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+                Samec v čiernom perí, oranžová obloha za chrbtom.
+              </figcaption>
+            </figure>
+          </div>
+
+          <figure class="mt-6 flex flex-col gap-3">
+            <div class="relative aspect-[16/9] overflow-hidden rounded-lg">
+              <Image
+                src={flockImg}
+                alt="Celý kŕdeľ pštrosov na rozľahlom výbehu pod zamračenou oblohou"
+                widths={[700, 1100, 1600]}
+                sizes="(min-width: 1024px) 70vw, 90vw"
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+              Celý kŕdeľ pohromade — tridsať kusov na výbehu.
+            </figcaption>
+          </figure>
+
+          <div class="mt-6 grid gap-6 lg:grid-cols-2">
+            <figure class="flex flex-col gap-3">
+              <div class="relative aspect-[4/5] overflow-hidden rounded-lg">
+                <Image
+                  src={winterImg}
+                  alt="Kŕdeľ pštrosov v zasneženom výbehu počas zimy"
+                  widths={[500, 750, 1100]}
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover object-[50%_40%]"
+                />
+              </div>
+              <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+                Aj v zime sú vonku — sneh im neprekáža.
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col gap-3">
+              <div class="relative aspect-[4/5] overflow-hidden rounded-lg">
+                <Image
+                  src={youngImg}
+                  alt="Skupina dorastajúcich pštrosov v letnej tráve"
+                  widths={[500, 750, 1100]}
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  loading="lazy"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <figcaption class="font-body text-base text-ink-muted leading-relaxed">
+                Dorastajúce mláďatá v letnej tráve.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <BackLink />
     </article>
   </main>
 
