@@ -3,16 +3,43 @@ import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
-import farmari4Img from '../../specs/photos/farmari-4.jpg';
+import farmari5Img from '../../specs/photos/farmari-5.jpg';
 import indiankyImg from '../../specs/photos/indianky.jpg';
+import jedlo1Img from '../../specs/photos/jedlo-1.jpeg';
+import jedlo2Img from '../../specs/photos/jedlo-2.jpeg';
+import jedlo3Img from '../../specs/photos/jedlo-3.jpeg';
+import jedlo4Img from '../../specs/photos/jedlo-4.jpeg';
 import kosickyImg from '../../specs/photos/kosicky.jpg';
+import kuchynaImg from '../../specs/photos/kuchyna.jpeg';
 import mixImg from '../../specs/photos/mix.jpg';
 import torta1Img from '../../specs/photos/torta-1.jpg';
 import torta2Img from '../../specs/photos/torta-2.jpg';
 import torta3Img from '../../specs/photos/torta-3.jpg';
-import farmari5Img from '../../specs/photos/farmari-5.jpg';
 import tortyImg from '../../specs/photos/torty.jpg';
 import vajceImg from '../../specs/photos/vajce-presvietene.png';
+
+const slane = [
+  {
+    src: jedlo1Img,
+    alt: 'Plnené vyprážané závitky a sezamové rezne na podnose',
+    caption: 'Plnené závitky a rezne',
+  },
+  {
+    src: jedlo2Img,
+    alt: 'Grilovaný steak s pečenou zeleninou a hoblinami parmezánu',
+    caption: 'Grilované mäso so zeleninou',
+  },
+  {
+    src: jedlo3Img,
+    alt: 'Pečené koleno, rebrá a opekané zemiaky na drevenej doske',
+    caption: 'Pečené koleno a rebrá',
+  },
+  {
+    src: jedlo4Img,
+    alt: 'Kanapky a jednohubky s prosciuttom, mozzarellou a olivami',
+    caption: 'Kanapky a jednohubky',
+  },
+];
 
 const torty = [
   {
@@ -72,13 +99,13 @@ const drobnosti = [
         class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[560px] overflow-hidden"
       >
         <Image
-          src={farmari4Img}
-          alt="Silvia a Jozef v profesionálnej kuchyni s veľkou pečienkou"
+          src={kuchynaImg}
+          alt="Profesionálna kuchyňa pri farme s konvektomatom, sporákom a nerezovými pultmi"
           widths={[600, 900, 1400, 1800]}
           sizes="(min-width: 1024px) 60vw, 100vw"
           loading="eager"
           fetchpriority="high"
-          class="absolute inset-0 h-full w-full object-cover object-[50%_15%]"
+          class="absolute inset-0 h-full w-full object-cover"
         />
       </figure>
 
@@ -169,6 +196,50 @@ const drobnosti = [
             class="absolute inset-0 h-full w-full object-cover"
           />
         </figure>
+      </div>
+    </section>
+
+    <!-- SLANÉ -->
+    <section class="py-20 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6">
+        <header class="max-w-2xl mb-12">
+          <p
+            class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+          >
+            Slané
+          </p>
+          <h2
+            class="font-display text-balance text-4xl lg:text-5xl text-ink mb-4 leading-[1.05]"
+          >
+            Hlavné chody pre váš stôl.
+          </h2>
+          <p class="font-body text-lg leading-relaxed text-ink-muted">
+            Od vyprážaných rezňov po grilované mäso a pečené špeciality — pripravíme
+            celé slané menu na vašu akciu.
+          </p>
+        </header>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {
+            slane.map((s) => (
+              <figure class="flex flex-col gap-3">
+                <div class="relative aspect-[4/3] overflow-hidden rounded-lg">
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    widths={[500, 750, 1100]}
+                    sizes="(min-width: 640px) 45vw, 90vw"
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption class="font-display text-xl text-ink">
+                  {s.caption}
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
       </div>
     </section>
 
