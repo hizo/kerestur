@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../../specs/existing-logo.png';
+import SocialLinks from './SocialLinks.astro';
 
 const nav = [
   { href: '/kuchyna', label: 'Kuchyňa' },
@@ -42,26 +43,30 @@ const nav = [
       }
     </nav>
 
-    <a
-      href="tel:+421905323828"
-      class="inline-flex items-center gap-2 font-body text-sm sm:text-base font-medium text-ink hover:text-brand transition whitespace-nowrap"
-      aria-label="Zavolať na farmu"
-    >
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="size-4 sm:size-5 shrink-0"
+    <div class="flex items-center gap-4 shrink-0">
+      <SocialLinks class="hidden sm:flex text-ink-muted" iconClass="size-5" />
+
+      <a
+        href="tel:+421905323828"
+        class="inline-flex items-center gap-2 font-body text-sm sm:text-base font-medium text-ink hover:text-brand transition whitespace-nowrap"
+        aria-label="Zavolať na farmu"
       >
-        <path
-          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-        />
-      </svg>
-      +421 905 323 828
-    </a>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4 sm:size-5 shrink-0"
+        >
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+          />
+        </svg>
+        +421 905 323 828
+      </a>
+    </div>
   </div>
 </header>
