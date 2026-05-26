@@ -1,23 +1,23 @@
-/* Semantic design tokens.
- * Components MUST reference these — not Tailwind defaults or primitive OKLCH values directly.
- * Direction-specific palettes (A/B/C) live in src/styles/mockups/[a|b|c].css and override
- * these on the corresponding mockup route. The winning direction will replace these defaults
- * in 05-design-system.md.
+/* Semantic design tokens — Direction A (locked 2026-05-26).
+ * Components reference these via Tailwind utilities (bg-surface, text-ink, …)
+ * or directly as var(--color-*) in custom CSS.
+ * Full rationale in specs/05-design-system.md.
+ * B and C reference palettes live at /mockup/b and /mockup/c via [data-direction] overrides.
  */
 
 :root {
-  --color-surface: oklch(99% 0.005 80);
-  --color-surface-muted: oklch(96% 0.01 80);
-  --color-border: oklch(88% 0.01 80);
+  --color-surface: oklch(96% 0.02 80);
+  --color-surface-muted: oklch(90% 0.04 70);
+  --color-border: oklch(82% 0.03 70);
 
-  --color-ink: oklch(20% 0.02 80);
-  --color-ink-muted: oklch(45% 0.02 80);
+  --color-ink: oklch(25% 0.04 50);
+  --color-ink-muted: oklch(45% 0.04 60);
 
-  --color-brand: oklch(40% 0.05 80);
-  --color-accent: oklch(70% 0.15 50);
+  --color-brand: oklch(42% 0.07 60);
+  --color-accent: oklch(85% 0.18 90);
 
-  --font-display: ui-serif, Georgia, serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Outfit", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
