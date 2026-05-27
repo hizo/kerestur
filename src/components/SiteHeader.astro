@@ -70,17 +70,88 @@ const nav = [
         </svg>
         +421 905 323 828
       </a>
+
+      <details id="mobile-menu" class="group lg:hidden">
+        <summary
+          class="-mr-2 flex size-11 cursor-pointer list-none items-center justify-center rounded-md text-ink transition hover:text-brand [&::-webkit-details-marker]:hidden"
+          aria-label="Menu"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6 group-open:hidden"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="hidden size-6 group-open:block"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </summary>
+
+        <div class="absolute inset-x-0 top-full border-b border-border bg-surface shadow-lg">
+          <nav
+            class="mx-auto flex max-w-6xl flex-col px-4 sm:px-6 py-2"
+            aria-label="Mobilná navigácia"
+          >
+            {
+              nav.map((item) => (
+                <a
+                  href={item.href}
+                  class="border-b border-border/60 py-3.5 font-body text-lg text-ink transition last:border-0 hover:text-brand"
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </nav>
+        </div>
+      </details>
     </div>
   </div>
 </header>
 
 <script>
-  // Pre-rendered header is sticky via CSS; this only adds the auto-hide
-  // behaviour (hide on scroll down, reveal on scroll up). Skipped entirely
-  // for prefers-reduced-motion, where the header just stays sticky.
   const header = document.getElementById('site-header');
+  const menu = document.getElementById('mobile-menu') as HTMLDetailsElement | null;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // The mobile menu is a native <details> that works without JS. This only
+  // adds niceties: close on link click, on Escape, and when widening to desktop.
+  if (menu) {
+    menu.addEventListener('click', (e) => {
+      if (e.target instanceof Element && e.target.closest('a')) menu.open = false;
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+      if (e.matches) menu.open = false;
+    });
+  }
+
+  // Pre-rendered header is sticky via CSS; this adds the auto-hide behaviour
+  // (hide on scroll down, reveal on scroll up). Skipped for prefers-reduced-motion,
+  // and never hides while the mobile menu is open.
   if (header && !reduceMotion) {
     let lastY = window.scrollY;
     let ticking = false;
@@ -89,7 +160,7 @@ const nav = [
       const y = Math.max(window.scrollY, 0);
       if (Math.abs(y - lastY) > 6) {
         const goingDown = y > lastY;
-        header.dataset.hidden = String(goingDown && y > header.offsetHeight);
+        header.dataset.hidden = String(!menu?.open && goingDown && y > header.offsetHeight);
         lastY = y;
       }
       ticking = false;
