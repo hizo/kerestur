@@ -127,7 +127,7 @@ export default function ContactForm({ turnstileSiteKey }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className={labelClass}>
           Meno*
@@ -137,6 +137,8 @@ export default function ContactForm({ turnstileSiteKey }: Props) {
           name="name"
           type="text"
           required
+          minLength={2}
+          maxLength={100}
           autoComplete="name"
           className={inputClass}
         />
@@ -151,6 +153,7 @@ export default function ContactForm({ turnstileSiteKey }: Props) {
           name="email"
           type="email"
           required
+          maxLength={150}
           autoComplete="email"
           className={inputClass}
         />
@@ -160,7 +163,14 @@ export default function ContactForm({ turnstileSiteKey }: Props) {
         <label htmlFor="phone" className={labelClass}>
           Telefón <span className="text-ink-muted font-normal">(voliteľné)</span>
         </label>
-        <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputClass} />
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          maxLength={40}
+          autoComplete="tel"
+          className={inputClass}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
@@ -171,6 +181,8 @@ export default function ContactForm({ turnstileSiteKey }: Props) {
           id="message"
           name="message"
           required
+          minLength={5}
+          maxLength={3000}
           rows={5}
           placeholder="Chcem prísť na návštevu, objednať vajcia či mäso, alebo sa spýtať na oslavu v kuchyni…"
           className={`${inputClass} resize-y`}
