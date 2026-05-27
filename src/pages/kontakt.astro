@@ -1,0 +1,161 @@
+---
+import ContactForm from '@/components/ContactForm.tsx';
+import Base from '@/layouts/Base.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
+
+const lead =
+  'Najlepšie telefonicky — ale ak vám to tak vyhovuje, napíšte nám pokojne cez formulár. Ozveme sa čo najskôr.';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as
+  | string
+  | undefined;
+
+const mapsUrl =
+  'https://www.google.com/maps/search/?api=1&query=Kri%C5%BEovany%20nad%20Dudv%C3%A1hom%20233';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Farma Kerestúr',
+  description:
+    'Rodinná pštrosia farma v Križovanoch nad Dudváhom, 30 minút od Bratislavy.',
+  url: 'https://farmakerestur.sk',
+  telephone: '+421905323828',
+  email: 'farma@kerestur.sk',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Križovany nad Dudváhom 233',
+    postalCode: '919 24',
+    addressLocality: 'Križovany nad Dudváhom',
+    addressCountry: 'SK',
+  },
+};
+---
+
+<Base title="Kontakt — Farma Kerestúr" description={lead}>
+  <SiteHeader />
+
+  <main>
+    <!-- HERO -->
+    <section class="bg-surface text-ink">
+      <div class="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+        <p
+          class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted mb-3"
+        >
+          Kontakt
+        </p>
+        <h1
+          class="font-display font-normal text-balance text-[clamp(2.5rem,5vw,4.25rem)] leading-[1.02] text-ink max-w-3xl"
+        >
+          Ozvite sa nám.
+        </h1>
+        <p class="font-body text-lg leading-relaxed text-ink-muted mt-6 max-w-2xl">
+          {lead}
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO + FORM -->
+    <section class="bg-surface-muted py-16 lg:py-24">
+      <div class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-2">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+            >
+              Zavolajte
+            </p>
+            <a
+              href="tel:+421905323828"
+              class="font-display text-3xl lg:text-4xl text-ink hover:text-brand transition leading-tight"
+            >
+              +421 905 323 828
+            </a>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Najrýchlejšia cesta. Termín návštevy či oslavy si dohodneme priamo
+              po telefóne.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+            >
+              Napíšte
+            </p>
+            <a
+              href="mailto:farma@kerestur.sk"
+              class="font-body text-lg text-ink underline decoration-1 underline-offset-4 hover:text-brand"
+            >
+              farma@kerestur.sk
+            </a>
+          </div>
+
+          <div id="mapa" class="flex flex-col gap-2 scroll-mt-24">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+            >
+              Nájdete nás
+            </p>
+            <address class="font-body text-lg not-italic text-ink leading-relaxed">
+              Križovany nad Dudváhom 233<br />
+              919 24
+            </address>
+            <p class="font-body text-base text-ink-muted leading-relaxed">
+              Autom 30 minút od Bratislavy, 15 minút od Trnavy. Parkovanie priamo
+              pred farmou. Najlepšie zavolať deň vopred.
+            </p>
+
+            <!-- TODO: once a map screenshot is provided, replace this block with
+                 an <Image> (specs/photos/mapa.*); the maps link stays the same. -->
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener"
+              class="group mt-2 block relative aspect-[3/2] overflow-hidden rounded-lg border border-border bg-surface"
+              aria-label="Otvoriť polohu farmy v mapách (nové okno)"
+            >
+              <span
+                class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink-muted group-hover:text-ink transition"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-8"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span class="font-body text-sm font-medium">Otvoriť v mapách →</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <p
+              class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted"
+            >
+              Sledujte nás
+            </p>
+            <SocialLinks class="text-ink-muted" iconClass="size-6" />
+          </div>
+        </div>
+
+        <div>
+          <ContactForm client:load turnstileSiteKey={turnstileSiteKey} />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</Base>

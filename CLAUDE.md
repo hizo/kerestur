@@ -8,7 +8,7 @@ Redesign of **farmakerestur.sk**, a Slovak family ostrich farm in Križovany nad
 
 ## Current state
 
-Astro 5 scaffold complete with homepage, `/pstros`, and three brand-mockup routes. Specs locked through `05-design-system.md`. Detail pages (`/kuchyna`, `/o-nas`, `/kontakt`, `/navsteva`, `/galeria`) still pending.
+Astro 5 site built: homepage, `/pstros`, `/kuchyna`, `/o-nas`, `/kontakt`, plus three brand-mockup routes. Specs locked through `05-design-system.md`. `/kontakt` has the contact form (React island → `/api/kontakt` endpoint: Zod + honeypot + Cloudflare Turnstile + Resend) — needs env vars to actually send/verify, see `.dev.vars.example`. The map on `/kontakt` is a click-through link awaiting a static screenshot. `/navsteva` was dropped (folded into `/kontakt` + the homepage Návšteva section). `/galeria` (Instagram-fed) is the only remaining planned route, deferred.
 
 ## Scope constraint (2026-05-26)
 

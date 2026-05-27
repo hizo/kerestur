@@ -1,70 +1,78 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
-import farmari5Img from '../../specs/photos/farmari-5.jpg';
+import farmers5Img from '../../specs/photos/farmari-5.jpg';
 import indiankyImg from '../../specs/photos/indianky.jpg';
-import jedlo1Img from '../../specs/photos/jedlo-1.jpeg';
-import jedlo2Img from '../../specs/photos/jedlo-2.jpeg';
-import jedlo3Img from '../../specs/photos/jedlo-3.jpeg';
-import jedlo4Img from '../../specs/photos/jedlo-4.jpeg';
+import dish1Img from '../../specs/photos/jedlo-1.jpeg';
+import dish2Img from '../../specs/photos/jedlo-2.jpeg';
+import dish3Img from '../../specs/photos/jedlo-3.jpeg';
+import dish4Img from '../../specs/photos/jedlo-4.jpeg';
 import kosickyImg from '../../specs/photos/kosicky.jpg';
-import kuchynaImg from '../../specs/photos/kuchyna.jpeg';
+import kitchenImg from '../../specs/photos/kuchyna.jpeg';
+import tableImg from '../../specs/photos/stol-1.jpeg';
 import mixImg from '../../specs/photos/mix.jpg';
-import torta1Img from '../../specs/photos/torta-1.jpg';
-import torta2Img from '../../specs/photos/torta-2.jpg';
-import torta3Img from '../../specs/photos/torta-3.jpg';
-import tortyImg from '../../specs/photos/torty.jpg';
-import vajceImg from '../../specs/photos/9.jpg';
+import cake1Img from '../../specs/photos/torta-1.jpg';
+import cake2Img from '../../specs/photos/torta-2.jpg';
+import cake3Img from '../../specs/photos/torta-3.jpg';
+import cakesImg from '../../specs/photos/torty.jpg';
+import eggImg from '../../specs/photos/9.jpg';
 
-const slane = [
+const savory: {
+  src: ImageMetadata;
+  alt: string;
+  caption: string;
+  position?: string;
+}[] = [
   {
-    src: jedlo1Img,
+    src: dish1Img,
     alt: 'Plnené vyprážané závitky a sezamové rezne na podnose',
     caption: 'Plnené závitky a rezne',
   },
   {
-    src: jedlo2Img,
+    src: dish2Img,
     alt: 'Grilovaný steak s pečenou zeleninou a hoblinami parmezánu',
     caption: 'Grilované mäso so zeleninou',
   },
   {
-    src: jedlo3Img,
+    src: dish3Img,
     alt: 'Pečené koleno, rebrá a opekané zemiaky na drevenej doske',
     caption: 'Pečené koleno a rebrá',
+    position: 'object-[50%_85%]',
   },
   {
-    src: jedlo4Img,
+    src: dish4Img,
     alt: 'Kanapky a jednohubky s prosciuttom, mozzarellou a olivami',
     caption: 'Kanapky a jednohubky',
   },
 ];
 
-const torty = [
+const cakes = [
   {
-    src: torta2Img,
+    src: cake2Img,
     alt: 'Krémová torta s figami, malinami, passion fruit a ružou',
     caption: 'Svadobné a slávnostné',
   },
   {
-    src: torta3Img,
+    src: cake3Img,
     alt: 'Čokoládová torta s makarónkami, lesnými plodmi a motýlikmi',
     caption: 'Detské oslavy a krstiny',
   },
   {
-    src: torta1Img,
+    src: cake1Img,
     alt: 'Textúrovaná svetlá torta zdobená karamelovými plátkami a striebornými srdcami',
     caption: 'Textúrované krémové',
   },
   {
-    src: tortyImg,
+    src: cakesImg,
     alt: 'Tri rôzne torty na pracovnom pulte profesionálnej kuchyne',
     caption: 'Viac druhov na výber',
   },
 ];
 
-const drobnosti = [
+const treats = [
   {
     src: kosickyImg,
     alt: 'Mini tarteletky s lesnými plodmi, čokoládou a krémom na drevenej etažéri',
@@ -99,13 +107,13 @@ const drobnosti = [
         class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[560px] overflow-hidden"
       >
         <Image
-          src={kuchynaImg}
-          alt="Profesionálna kuchyňa pri farme s konvektomatom, sporákom a nerezovými pultmi"
+          src={tableImg}
+          alt="Slávnostne prestretý stôl so žltými tulipánmi, porcelánom a pohármi"
           widths={[600, 900, 1400, 1800]}
           sizes="(min-width: 1024px) 60vw, 100vw"
           loading="eager"
           fetchpriority="high"
-          class="absolute inset-0 h-full w-full object-cover"
+          class="absolute inset-0 h-full w-full object-cover object-[50%_40%]"
         />
       </figure>
 
@@ -154,7 +162,7 @@ const drobnosti = [
       </article>
     </section>
 
-    <!-- Z FARMY DO KUCHYNE -->
+    <!-- FARM TO KITCHEN -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div
         class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
@@ -188,7 +196,7 @@ const drobnosti = [
           class="lg:order-2 relative aspect-[4/3] rounded-lg overflow-hidden"
         >
           <Image
-            src={vajceImg}
+            src={eggImg}
             alt="Pštrosie vajce v dekoračnom koši so sušenými makovicami, perami a slamou"
             widths={[500, 750, 1100]}
             sizes="(min-width: 1024px) 45vw, 90vw"
@@ -199,7 +207,7 @@ const drobnosti = [
       </div>
     </section>
 
-    <!-- SLANÉ -->
+    <!-- SAVORY -->
     <section class="py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="max-w-2xl mb-12">
@@ -221,7 +229,7 @@ const drobnosti = [
 
         <div class="grid gap-6 sm:grid-cols-2">
           {
-            slane.map((s) => (
+            savory.map((s) => (
               <figure class="flex flex-col gap-3">
                 <div class="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
@@ -230,7 +238,7 @@ const drobnosti = [
                     widths={[500, 750, 1100]}
                     sizes="(min-width: 640px) 45vw, 90vw"
                     loading="lazy"
-                    class="absolute inset-0 h-full w-full object-cover"
+                    class={`absolute inset-0 h-full w-full object-cover ${s.position ?? ''}`}
                   />
                 </div>
                 <figcaption class="font-display text-xl text-ink">
@@ -243,7 +251,7 @@ const drobnosti = [
       </div>
     </section>
 
-    <!-- TORTY -->
+    <!-- CAKES -->
     <section class="py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="max-w-2xl mb-12">
@@ -265,7 +273,7 @@ const drobnosti = [
 
         <div class="grid gap-6 sm:grid-cols-2">
           {
-            torty.map((t) => (
+            cakes.map((t) => (
               <figure class="flex flex-col gap-3">
                 <div class="relative aspect-[4/5] overflow-hidden rounded-lg">
                   <Image
@@ -287,7 +295,7 @@ const drobnosti = [
       </div>
     </section>
 
-    <!-- DROBNOSTI -->
+    <!-- SMALL TREATS -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="max-w-2xl mb-12">
@@ -309,7 +317,7 @@ const drobnosti = [
 
         <div class="grid gap-6 md:grid-cols-3">
           {
-            drobnosti.map((d) => (
+            treats.map((d) => (
               <figure class="flex flex-col gap-3 bg-surface border border-border rounded-lg overflow-hidden">
                 <div class="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -334,23 +342,43 @@ const drobnosti = [
       </div>
     </section>
 
-    <!-- VARÍME MY DVAJA -->
+    <!-- THE TWO OF US COOKING -->
     <section class="py-20 lg:py-24">
       <div
-        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
+        class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-start"
       >
-        <figure
-          class="relative aspect-[4/3] rounded-lg overflow-hidden lg:order-2"
-        >
-          <Image
-            src={farmari5Img}
-            alt="Silvia a Jozef pri grilovačke pred domom, Silvia s pohárom vína"
-            widths={[500, 750, 1100]}
-            sizes="(min-width: 1024px) 45vw, 90vw"
-            loading="lazy"
-            class="absolute inset-0 h-full w-full object-cover"
-          />
-        </figure>
+        <div class="flex flex-col gap-4 lg:order-2">
+          <figure class="flex flex-col gap-2">
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <Image
+                src={farmers5Img}
+                alt="Silvia a Jozef pri grilovačke pred domom, Silvia s pohárom vína"
+                widths={[500, 750, 1100]}
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <figcaption class="font-body text-sm text-ink-muted leading-relaxed">
+              Silvia a Jozef — pri sporáku aj pri grile.
+            </figcaption>
+          </figure>
+          <figure class="flex flex-col gap-2">
+            <div class="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <Image
+                src={kitchenImg}
+                alt="Profesionálna kuchyňa pri farme s konvektomatom, sporákom a nerezovými pultmi"
+                widths={[500, 750, 1100]}
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                loading="lazy"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <figcaption class="font-body text-sm text-ink-muted leading-relaxed">
+              Profesionálna kuchyňa pri dome — tu všetko vzniká.
+            </figcaption>
+          </figure>
+        </div>
 
         <article class="flex flex-col gap-6 lg:order-1">
           <p class="font-body text-xs uppercase tracking-[0.22em] text-ink-muted">
@@ -374,7 +402,7 @@ const drobnosti = [
       </div>
     </section>
 
-    <!-- AKO SA DOHODNEME -->
+    <!-- HOW IT WORKS -->
     <section id="proces" class="py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="mb-12">

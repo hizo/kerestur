@@ -5,10 +5,10 @@ import SiteHeader from '@/components/SiteHeader.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import heroImage from '../../specs/photos/1.jpg';
 import pstrosImg from '../../specs/photos/3.jpg';
-import mladaImg from '../../specs/photos/mlade-1.jpg';
-import vajceImg from '../../specs/photos/10.jpg';
-import kuchynaImg from '../../specs/photos/stol.jpeg';
-import farmariImg from '../../specs/photos/farmari.jpg';
+import chickImg from '../../specs/photos/mlade-1.jpg';
+import eggImg from '../../specs/photos/10.jpg';
+import kitchenImg from '../../specs/photos/stol.jpeg';
+import farmersImg from '../../specs/photos/farmari.jpg';
 import logoImage from '../../specs/existing-logo.png';
 
 const animals = [
@@ -25,7 +25,7 @@ const animals = [
     lead:
       'Liahnu sa od marca do júna. Prvé dni života strávia v teple liahne, potom prídu na výbeh s rodičmi.',
     href: '/pstros',
-    image: mladaImg,
+    image: chickImg,
     alt: 'Pštrosie mláďa zblízka s charakteristickými pásikmi',
   },
   {
@@ -33,7 +33,7 @@ const animals = [
     lead:
       'Jedno vajce váži 1,5 kg a stačí na omeletu pre celú rodinu. Sezónne od marca do októbra.',
     href: '/pstros',
-    image: vajceImg,
+    image: eggImg,
     alt: 'Pštrosie vajce v sviežej tráve',
   },
 ];
@@ -106,7 +106,7 @@ const animals = [
       </article>
     </section>
 
-    <!-- NÁVŠTEVA -->
+    <!-- VISIT -->
     <section id="navsteva" class="bg-surface-muted py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="max-w-2xl mb-12">
@@ -179,7 +179,7 @@ const animals = [
       </div>
     </section>
 
-    <!-- ZVIERATÁ -->
+    <!-- OSTRICH -->
     <section class="py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header
@@ -237,7 +237,7 @@ const animals = [
       </div>
     </section>
 
-    <!-- KUCHYŇA / OSLAVY -->
+    <!-- KITCHEN / EVENTS -->
     <section class="py-20 lg:py-24">
       <div
         class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
@@ -286,7 +286,7 @@ const animals = [
           class="lg:order-2 relative aspect-[4/3] rounded-lg overflow-hidden"
         >
           <Image
-            src={kuchynaImg}
+            src={kitchenImg}
             alt="Slávnostne prestretý stôl s ornamentovými taniermi, pohármi a kyticou tulipánov"
             widths={[500, 750, 1100]}
             sizes="(min-width: 1024px) 45vw, 90vw"
@@ -297,14 +297,14 @@ const animals = [
       </div>
     </section>
 
-    <!-- O NÁS / PRÍBEH -->
+    <!-- ABOUT / STORY -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div
         class="mx-auto max-w-6xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center"
       >
         <figure class="relative aspect-[4/3] rounded-lg overflow-hidden">
           <Image
-            src={farmariImg}
+            src={farmersImg}
             alt="Farmárka a farmár z Farmy Kerestúr pred kamenným domom"
             widths={[500, 750, 1100]}
             sizes="(min-width: 1024px) 45vw, 90vw"
@@ -343,7 +343,7 @@ const animals = [
       </div>
     </section>
 
-    <!-- DOLE / CTA -->
+    <!-- FOOTER CTA -->
     <section class="py-20 lg:py-24">
       <div class="mx-auto max-w-3xl px-6 text-center flex flex-col gap-6 items-center">
         <Image

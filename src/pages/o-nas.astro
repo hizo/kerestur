@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
 import SiteHeader from '@/components/SiteHeader.astro';
-import farmariImg from '../../specs/photos/farmari-hero.jpg';
+import farmersImg from '../../specs/photos/farmari-hero.jpg';
 import cellarImg from '../../specs/photos/farmari-3.jpg';
 import workKitchenImg from '../../specs/photos/farmari-4.jpg';
 import workGrillImg from '../../specs/photos/farmari-5.jpg';
@@ -22,7 +22,7 @@ const lead =
         class="relative aspect-[4/3] lg:aspect-auto lg:min-h-[560px] overflow-hidden"
       >
         <Image
-          src={farmariImg}
+          src={farmersImg}
           alt="Silvia a Jozef v slovenských krojoch — Silvia s krčahom makovíc, Jozef s vidlami"
           widths={[600, 900, 1400, 1800]}
           sizes="(min-width: 1024px) 60vw, 100vw"
@@ -58,7 +58,7 @@ const lead =
       </article>
     </section>
 
-    <!-- PRÍBEH -->
+    <!-- STORY -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div class="mx-auto max-w-3xl px-6 prose">
         <h2>Začali sme s tromi.</h2>
@@ -138,7 +138,7 @@ const lead =
       </div>
     </section>
 
-    <!-- PRI PRÁCI -->
+    <!-- AT WORK -->
     <section class="bg-surface-muted py-20 lg:py-24">
       <div class="mx-auto max-w-6xl px-6">
         <header class="max-w-2xl mb-12">

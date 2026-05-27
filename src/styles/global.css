@@ -11,6 +11,8 @@
   --color-ink-muted: var(--color-ink-muted);
   --color-brand: var(--color-brand);
   --color-accent: var(--color-accent);
+  --color-danger: var(--color-danger);
+  --color-danger-surface: var(--color-danger-surface);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);

@@ -1,0 +1,17 @@
+# Kontaktný formulár — premenné prostredia.
+# Skopíruj do `.dev.vars` (lokálny dev, číta Cloudflare platformProxy)
+# a nastav rovnaké hodnoty v Cloudflare Pages (Settings → Environment variables).
+# Formulár funguje aj bez nich — len reálne neodošle e-mail a nezobrazí Turnstile.
+
+# Resend API kľúč (vyžaduje overenú odosielajúcu doménu farmakerestur.sk)
+RESEND_API_KEY=
+
+# Cloudflare Turnstile — server (tajný) kľúč pre overenie na endpointe
+TURNSTILE_SECRET_KEY=
+
+# Cloudflare Turnstile — verejný site key pre widget (build-time, prefix PUBLIC_)
+PUBLIC_TURNSTILE_SITE_KEY=
+
+# Voliteľné — prepíšu predvolené adresy v src/pages/api/kontakt.ts
+# CONTACT_TO=farma@kerestur.sk
+# CONTACT_FROM=Farma Kerestúr <web@farmakerestur.sk>
