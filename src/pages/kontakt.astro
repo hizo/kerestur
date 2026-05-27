@@ -54,7 +54,10 @@ const jsonLd = {
           Ozvite sa nám.
         </h1>
         <p class="font-body text-lg leading-relaxed text-ink-muted mt-6 max-w-2xl">
-          {lead}
+          Najlepšie telefonicky — ale ak vám to tak vyhovuje, <a
+            href="#formular"
+            class="font-medium text-ink underline decoration-accent decoration-2 underline-offset-4 transition hover:text-brand hover:decoration-brand"
+            >napíšte nám pokojne cez formulár</a>. Ozveme sa čo najskôr.
         </p>
       </div>
     </section>
@@ -156,7 +159,7 @@ const jsonLd = {
           </div>
         </div>
 
-        <div>
+        <div id="formular" class="scroll-mt-24">
           <ContactForm client:load turnstileSiteKey={turnstileSiteKey} />
         </div>
       </div>
