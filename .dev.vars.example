@@ -12,5 +12,7 @@ RESEND_API_KEY=
 # Local dummy that always passes: 1x0000000000000000000000000000000AA
 TURNSTILE_SECRET_KEY=
 
+# Defaults (used if unset). To verify in Resend you'd verify the kerestur.sk
+# domain (where farma@kerestur.sk lives), not farmakerestur.sk.
 # CONTACT_TO=farma@kerestur.sk
-# CONTACT_FROM=Farma Kerestúr <web@farmakerestur.sk>
+# CONTACT_FROM=Farma Kerestúr <farma@kerestur.sk>
