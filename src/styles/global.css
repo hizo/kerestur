@@ -39,7 +39,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Prose styling for rendered MDX bodies (zvieratá detail, future stránky).
+/* Prose styling for hand-written text bodies (/pstros, /o-nas).
  * Minimal hand-rolled rules in lieu of @tailwindcss/typography — keeps
  * tokens consistent and avoids another dep. */
 .prose {
