@@ -12,6 +12,5 @@ RESEND_API_KEY=
 # Local dummy that always passes: 1x0000000000000000000000000000000AA
 TURNSTILE_SECRET_KEY=
 
-# Optional — override the default recipient/sender from src/pages/api/contact.ts.
 # CONTACT_TO=farma@kerestur.sk
 # CONTACT_FROM=Farma Kerestúr <web@farmakerestur.sk>
