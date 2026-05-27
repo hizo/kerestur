@@ -15,7 +15,7 @@ const contactSchema = z.object({
 });
 
 const CONTACT_TO = 'farma@kerestur.sk';
-const CONTACT_FROM = 'Farma Kerestúr <web@farmakerestur.sk>';
+const CONTACT_FROM = 'Farma Kerestúr <farma@kerestur.sk>';
 
 const escapeHtml = (value: string) =>
   value
