@@ -11,7 +11,10 @@ const nav = [
 ];
 ---
 
-<header class="bg-surface border-b border-border">
+<header
+  id="site-header"
+  class="sticky top-0 z-50 bg-surface border-b border-border transition-transform duration-300 will-change-transform motion-reduce:transition-none data-[hidden=true]:-translate-y-full"
+>
   <div
     class="mx-auto max-w-6xl px-4 sm:px-6 py-4 flex items-center justify-between gap-4"
   >
@@ -70,3 +73,37 @@ const nav = [
     </div>
   </div>
 </header>
+
+<script>
+  // Pre-rendered header is sticky via CSS; this only adds the auto-hide
+  // behaviour (hide on scroll down, reveal on scroll up). Skipped entirely
+  // for prefers-reduced-motion, where the header just stays sticky.
+  const header = document.getElementById('site-header');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (header && !reduceMotion) {
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const update = () => {
+      const y = Math.max(window.scrollY, 0);
+      if (Math.abs(y - lastY) > 6) {
+        const goingDown = y > lastY;
+        header.dataset.hidden = String(goingDown && y > header.offsetHeight);
+        lastY = y;
+      }
+      ticking = false;
+    };
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true },
+    );
+  }
+</script>
